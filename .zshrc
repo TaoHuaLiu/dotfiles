@@ -35,8 +35,8 @@ compdef vman="man"
 # bindkey '^L' autosuggest-accept
 # Options
 #   Corrections
-setopt CORRECT
-setopt CORRECT_ALL
+# setopt CORRECT
+# setopt CORRECT_ALL
 
 
 # Plugins

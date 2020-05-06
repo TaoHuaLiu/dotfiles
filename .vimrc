@@ -98,7 +98,8 @@ set suffixes=~,.aux,.bak,.bkp,.dvi,.hi,.o,.pdf,.gz,.idx,.log,.ps,.swp,.tar,.ilg,
 " Create backup files ending in ~, in ~/tmp or, if
 " that is not possible, in the working directory.
 set backup
-set backupdir=~/backups,.
+set backupdir=~/.cache/backups
+set directory=~/.cache/swaps
 " Flexible backspace: allow backspacing over autoindent, line breaks, start of
 " insert.
 set backspace=indent,eol,start
@@ -146,8 +147,10 @@ map <C-p> :bp<cr>
 " See https://vi.stackexchange.com/questions/17549/using-pandoc-with-vim-keybindings
 " Faster Make
 autocmd FileType pandoc noremap <buffer><silent> <leader>pb :<c-u>Pandoc beamer -s<cr> 
+autocmd FileType pandoc noremap <buffer><silent> <leader>ph :<c-u>Pandoc html -s --mathjax<cr> 
 " autocmd for filetype specific
 autocmd FileType pandoc nnoremap <buffer><silent> <leader>pd :<c-u>Pandoc docx -s --mathjax<cr> 
+autocmd FileType pandoc nnoremap <buffer><silent> <leader>oh :<c-u>silent call system('firefox '.expand('%:p:r:S').'.html')<cr>
 autocmd FileType pandoc nnoremap <buffer><silent> <leader>od :<c-u>silent call system('libreoffice '.expand('%:p:r:S').'.docx')<cr>
 autocmd FileType pandoc noremap <buffer><silent> <leader>pb :<c-u>Pandoc beamer -s<cr> 
 nnoremap <buffer><silent> <leader>op :<c-u>silent call system('zathura '.expand('%:p:r:S').'.pdf')<cr>

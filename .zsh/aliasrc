@@ -32,6 +32,7 @@ alias lr='ls -tRFh --color=auto'   #sorted by date,recursive,show type,human rea
 alias lt='ls -ltFh --color=auto'   #long list,sorted by date,show type,human readable
 alias zshrc='${=EDITOR} ~/.zshrc' # Quick access to the ~/.zshrc file
 alias vimrc='${=EDITOR} ~/.vimrc'
+alias aliasrc='${=EDITOR} ~/.zsh/aliasrc'
 alias grep='grep --color'
 alias rm='rm -i'
 alias cp='cp -i'
