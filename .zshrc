@@ -37,6 +37,7 @@ compdef vman="man"
 #   Corrections
 # setopt CORRECT
 # setopt CORRECT_ALL
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ;} history -a"
 
 
 # Plugins

@@ -40,6 +40,6 @@ alias mv='mv -i'
 alias code='snap run code'
 alias tsm='transmission-remote'
 alias ..='cd ..'
-alias bat='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage"'
+alias batt='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage"'
 # Dotfile management with git bare
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
