@@ -48,8 +48,8 @@ alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 # Scritps
 
 sl() { du -a ~/Documents/2lycee/* | awk '{print$2}' | grep -e ".md" -e ".txt" -e ".tex" -e ".html" | fzf | xargs -r $EDITOR ;}
-# Copy to desired directory
-cl() { du -a ~/Documents/2lycee/* | awk '{print$2}' | fzf | xargs -r cp -v "$1" ;}
-vf() { fzf | xargs -r -I % $EDITOR % ;}
 sp() { du -a ~/Documents/2lycee/* ~/Downloads/* | awk '{print$2}' | grep .pdf | fzf | xargs -r zathura ;}
+# Copy to desired directory
+cl() { du ~/Documents/2lycee/* | awk '{print$2}' | fzf | xargs -r mv -vi "$1" ;}
+vf() { fzf | xargs -r -I % $EDITOR % ;}
 # se() { du -a ~/Documents/2lycee/* ~/Downloads/* | awk '{print$2}' | fzf | xargs -r $EDITOR ;}
