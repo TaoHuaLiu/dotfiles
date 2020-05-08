@@ -28,7 +28,6 @@ eval "$(pandoc --bash-completion)"
 # Custom ZSH Binds
 # Load aliases and shortcuts if existent.
 [ -f "$HOME/.zsh/aliasrc" ] && source "$HOME/.zsh/aliasrc"
-. /usr/share/autojump/autojump.sh
 export PATH="$PATH:$HOME/.vim/bundle/vim-superman/bin"
 compdef vman="man"
 # Custom ZSH Binds

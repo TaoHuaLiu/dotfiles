@@ -122,8 +122,8 @@ ino <Up> <Nop>
 ino <Down> <Nop>
 ino <Left> <Nop>
 ino <Right> <Nop>
-" Remap ESC to jj
-:imap jj <Esc>
+" Remap ESC to kk
+:imap kk <Esc>
 " Disable space in normal
 " Leader key = space
 nnoremap <SPACE> <Nop>
@@ -150,8 +150,8 @@ autocmd FileType pandoc noremap <buffer><silent> <leader>pb :<c-u>Pandoc beamer 
 autocmd FileType pandoc noremap <buffer><silent> <leader>ph :<c-u>Pandoc html -s --mathjax<cr> 
 " autocmd for filetype specific
 autocmd FileType pandoc nnoremap <buffer><silent> <leader>pd :<c-u>Pandoc docx -s --mathjax<cr> 
-autocmd FileType pandoc nnoremap <buffer><silent> <leader>oh :<c-u>silent call system('firefox '.expand('%:p:r:S').'.html')<cr>
-autocmd FileType pandoc nnoremap <buffer><silent> <leader>od :<c-u>silent call system('libreoffice '.expand('%:p:r:S').'.docx')<cr>
+autocmd FileType pandoc,html nnoremap <buffer><silent> <leader>oh :<c-u>silent call system('firefox '.expand('%:p:r:S').'.html')<cr>
+autocmd FileType pandoc,tex nnoremap <buffer><silent> <leader>od :<c-u>silent call system('libreoffice '.expand('%:p:r:S').'.docx')<cr>
 autocmd FileType pandoc noremap <buffer><silent> <leader>pb :<c-u>Pandoc beamer -s<cr> 
 nnoremap <buffer><silent> <leader>op :<c-u>silent call system('zathura '.expand('%:p:r:S').'.pdf')<cr>
 " Without vim-pandoc
