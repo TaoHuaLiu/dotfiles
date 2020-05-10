@@ -17,12 +17,15 @@ Plugin 'vim-pandoc/vim-rmarkdown'
 Plugin 'xuhdev/vim-latex-live-preview'
 " Focus mode
 Plugin 'junegunn/goyo.vim'
+Plugin 'junegunn/limelight.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'vimwiki/vimwiki'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-repeat'
+Plugin 'vim-voom/VOoM'
 " Track the engine.
 Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
@@ -32,13 +35,44 @@ Plugin 'dracula/vim', { 'name': 'dracula' }
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
-filetype plugin indent on    " required
+filetype plugin on    " required
 " Put your non-Plugin stuff after this line
 
 set encoding=utf-8
 
-" Get the defaults that most users want.
-source $VIMRUNTIME/defaults.vim
+" ============================================
+" ============================================
+" REMAPS
+" ============================================
+" Leader key = space
+nnoremap <SPACE> <Nop>
+let mapleader = ' '
+" Don't use Ex mode, use Q for formatting.
+" Revert with :unmap Q.
+map Q gq
+" Disable arrow keys in normal mode
+no <Up> <Nop>
+no <Down> <Nop>
+no <Left> <Nop>
+no <Right> <Nop>
+
+" Disable arrow keys in insert mode
+ino <Up> <Nop>
+ino <Down> <Nop>
+ino <Left> <Nop>
+ino <Right> <Nop>
+" Remap ESC to kk
+:imap jk <Esc>
+" Disable space in normal
+" Quicker window movement
+" Keymaps
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+" Buffer movement (C-n - next, C-p - previous).
+map <C-n> :bn<cr>
+map <C-p> :bp<cr>
 
 if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
@@ -90,11 +124,15 @@ set splitbelow splitright
 set ruler
 set mouse=nicr " Mouse scrolling
 set t_Co=256 " 256 colors TERM
+set ttimeout		" time out for key codes
+set ttimeoutlen=100	" wait up to 100ms after Esc for special key
+set display=truncate
+set history=200
 
 " Completion for file open etc.
 set wildmenu
 set wildmode=list:longest
-set wildignore+=*.log,*.pdf,*.docx,*.swp,*.o,*.hi,*~
+set wildignore+=*.log,*.pdf,*.docx,*.pptx,*.swp,*.o,*.hi,*~
 " Ignore these when using TAB key with :e
 set suffixes=~,.aux,.bak,.bkp,.dvi,.hi,.o,.pdf,.gz,.idx,.log,.ps,.swp,.tar,.ilg,.bbl,.toc,.ind,.docx
 " Create backup files ending in ~, in ~/tmp or, if
@@ -108,37 +146,6 @@ set backspace=indent,eol,start
 
 " makes vim default register = the system clipboard
 " set clipboard+=unnamed 
-
-" ============================================
-" ============================================
-" REMAPS
-" ============================================
-" Disable arrow keys in normal mode
-no <Up> <Nop>
-no <Down> <Nop>
-no <Left> <Nop>
-no <Right> <Nop>
-
-" Disable arrow keys in insert mode
-ino <Up> <Nop>
-ino <Down> <Nop>
-ino <Left> <Nop>
-ino <Right> <Nop>
-" Remap ESC to kk
-:imap kk <Esc>
-" Disable space in normal
-" Leader key = space
-nnoremap <SPACE> <Nop>
-let mapleader = ' '
-" Quicker window movement
-" Keymaps
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-" Buffer movement (C-n - next, C-p - previous).
-map <C-n> :bn<cr>
-map <C-p> :bp<cr>
 
 " ===================================
 " LEADER SHORTCUTS 
@@ -203,13 +210,16 @@ let g:UltiSnipsEditSplit="vertical"
 " COLORS
 colorscheme dracula
 " Some tab completions Omnicmpletions
-filetype plugin on
+filetype plugin indent on
 set omnifunc=syntaxcomplete#Complete
 " vim-pandoc options
 let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
 let g:pandoc#spell#enabled = 0
 " vim-pandoc-after integration
 let g:pandoc#after#modules#enabled = ["ultisnips"]
+" vim wiki opt
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown'}]
 
 " GUI options
 set guioptions-=m  "remove menu bar
