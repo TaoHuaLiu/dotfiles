@@ -28,16 +28,27 @@ eval "$(pandoc --bash-completion)"
 # Custom ZSH Binds
 # Load aliases and shortcuts if existent.
 [ -f "$HOME/.zsh/aliasrc" ] && source "$HOME/.zsh/aliasrc"
-export PATH="$PATH:$HOME/.vim/bundle/vim-superman/bin"
-compdef vman="man"
 # Custom ZSH Binds
 # bindkey '^L' autosuggest-accept
+# Color schemes for man pages
+export LESS_TERMCAP_mb=$'\e[1;32m'
+export LESS_TERMCAP_md=$'\e[1;32m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[01;33m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[1;4;31m'
 # Options
 #   Corrections
 # setopt CORRECT
 # setopt CORRECT_ALL
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ;} history -a"
 
+# FZF options
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse'
+# Edit line in vim with ctrl-e:
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^e' edit-command-line
 
 # Plugins
 source /usr/share/autojump/autojump.sh

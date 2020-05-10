@@ -11,17 +11,18 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
+Plugin 'vim-pandoc/vim-pandoc-after'
+Plugin 'vim-pandoc/vim-rmarkdown'
 " A Vim Plugin for Lively Previewing LaTeX PDF Output
 Plugin 'xuhdev/vim-latex-live-preview'
 " Focus mode
 Plugin 'junegunn/goyo.vim'
-" vmanpager
-Plugin 'jez/vim-superman'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'vifm/vifm.vim'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'vimwiki/vimwiki'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-commentary'
 " Track the engine.
 Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
@@ -84,6 +85,7 @@ set tabstop=4
 set autowrite 
 set autochdir
 set relativenumber
+set number
 set splitbelow splitright
 set ruler
 set mouse=nicr " Mouse scrolling
@@ -147,12 +149,12 @@ map <C-p> :bp<cr>
 " See https://vi.stackexchange.com/questions/17549/using-pandoc-with-vim-keybindings
 " Faster Make
 autocmd FileType pandoc noremap <buffer><silent> <leader>pb :<c-u>Pandoc beamer -s<cr> 
+autocmd FileType pandoc noremap <buffer><silent> <leader>pp :<c-u>Pandoc -f markdown+raw_tex+citations -s<cr> 
 autocmd FileType pandoc noremap <buffer><silent> <leader>ph :<c-u>Pandoc html -s --mathjax<cr> 
 " autocmd for filetype specific
 autocmd FileType pandoc nnoremap <buffer><silent> <leader>pd :<c-u>Pandoc docx -s --mathjax<cr> 
-autocmd FileType pandoc,html nnoremap <buffer><silent> <leader>oh :<c-u>silent call system('firefox '.expand('%:p:r:S').'.html')<cr>
+autocmd FileType pandoc,html nnoremap <buffer><silent> <leader>oh :<c-u>silent call system('lynx'.expand('%:p:r:S').'.html')<cr>
 autocmd FileType pandoc,tex nnoremap <buffer><silent> <leader>od :<c-u>silent call system('libreoffice '.expand('%:p:r:S').'.docx')<cr>
-autocmd FileType pandoc noremap <buffer><silent> <leader>pb :<c-u>Pandoc beamer -s<cr> 
 nnoremap <buffer><silent> <leader>op :<c-u>silent call system('zathura '.expand('%:p:r:S').'.pdf')<cr>
 " Without vim-pandoc
 " autocmd FileType pandoc nnoremap <buffer> <leader>pd :<c-u>!pandoc -f markdown -t docx -s --mathjax -o %:r.docx %<CR> 
@@ -178,7 +180,7 @@ let g:livepreview_engine = 'xelatex'
 " Enable wordcount
 let g:airline#extensions#wordcount#enabled = 1
 " Add notes to filetypes
-let g:airline#extensions#wordcount#filetypes = '\vnotes|help|markdown|rst|pandoc|org|text|asciidoc|tex|mail'
+let g:airline#extensions#wordcount#filetypes = '\help|markdown|rst|pandoc|org|text|asciidoc|tex|mail'
 let g:airline_powerline_fonts = 1
 " A tab bar
 let g:airline#extensions#tabline#enabled = 1
@@ -206,6 +208,8 @@ set omnifunc=syntaxcomplete#Complete
 " vim-pandoc options
 let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
 let g:pandoc#spell#enabled = 0
+" vim-pandoc-after integration
+let g:pandoc#after#modules#enabled = ["ultisnips"]
 
 " GUI options
 set guioptions-=m  "remove menu bar
