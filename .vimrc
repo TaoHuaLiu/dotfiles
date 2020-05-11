@@ -18,6 +18,8 @@ Plugin 'xuhdev/vim-latex-live-preview'
 " Focus mode
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plugin 'junegunn/fzf.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'plasticboy/vim-markdown'
@@ -25,7 +27,8 @@ Plugin 'vimwiki/vimwiki'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
-Plugin 'vim-voom/VOoM'
+Plugin 'tpope/vim-fugitive'
+Plugin 'ajh17/VimCompletesMe'
 " Track the engine.
 Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
@@ -35,7 +38,7 @@ Plugin 'dracula/vim', { 'name': 'dracula' }
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
-filetype plugin on    " required
+filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 set encoding=utf-8
@@ -62,7 +65,7 @@ ino <Down> <Nop>
 ino <Left> <Nop>
 ino <Right> <Nop>
 " Remap ESC to kk
-:imap jk <Esc>
+:imap jj <Esc>
 " Disable space in normal
 " Quicker window movement
 " Keymaps
@@ -128,6 +131,7 @@ set ttimeout		" time out for key codes
 set ttimeoutlen=100	" wait up to 100ms after Esc for special key
 set display=truncate
 set history=200
+set showcmd
 
 " Completion for file open etc.
 set wildmenu
@@ -155,21 +159,25 @@ set backspace=indent,eol,start
 " Pandoc renders
 " See https://vi.stackexchange.com/questions/17549/using-pandoc-with-vim-keybindings
 " Faster Make
-autocmd FileType pandoc noremap <buffer><silent> <leader>pb :<c-u>Pandoc beamer -s<cr> 
-autocmd FileType pandoc noremap <buffer><silent> <leader>pp :<c-u>Pandoc -f markdown+raw_tex+citations -s<cr> 
-autocmd FileType pandoc noremap <buffer><silent> <leader>ph :<c-u>Pandoc html -s --mathjax<cr> 
+autocmd FileType pandoc noremap <buffer><silent> <leader>pb :<c-u>Pandoc! beamer -s<cr> 
+autocmd FileType pandoc noremap <buffer><silent> <leader>pp :<c-u>Pandoc! -f markdown+raw_tex+citations -s pdf<cr> 
+autocmd FileType pandoc noremap <buffer><silent> <leader>ph :<c-u>Pandoc! html -s --mathjax<cr> 
 " autocmd for filetype specific
-autocmd FileType pandoc nnoremap <buffer><silent> <leader>pd :<c-u>Pandoc docx -s --mathjax<cr> 
-autocmd FileType pandoc,html nnoremap <buffer><silent> <leader>oh :<c-u>silent call system('lynx'.expand('%:p:r:S').'.html')<cr>
-autocmd FileType pandoc,tex nnoremap <buffer><silent> <leader>od :<c-u>silent call system('libreoffice '.expand('%:p:r:S').'.docx')<cr>
-nnoremap <buffer><silent> <leader>op :<c-u>silent call system('zathura '.expand('%:p:r:S').'.pdf')<cr>
+autocmd FileType pandoc nnoremap <buffer><silent> <leader>pd :<c-u>Pandoc! docx -s --mathjax<cr> 
+autocmd FileType html nnoremap <buffer><silent> <leader>oh :<c-u>silent call system('lynx'.expand('%:p:r:S').'.html')<cr>
+autocmd FileType tex nnoremap <buffer><silent> <leader>op :<c-u>silent call system('zathura '.expand('%:p:r:S').'.pdf')<cr>
 " Without vim-pandoc
 " autocmd FileType pandoc nnoremap <buffer> <leader>pd :<c-u>!pandoc -f markdown -t docx -s --mathjax -o %:r.docx %<CR> 
 " autocmd FileType pandoc noremap <leader>pb :<c-u>!pandoc -f markdown --pdf-engine=xelatex -t beamer -s -o %:r.pdf %<CR> 
 
 " Quick latex render keymap
-autocmd FileType tex nnoremap <buffer> <C-C> :!xelatex %<Enter>
-autocmd FileType tex inoremap <buffer> <C-C> :!xelatex %<Enter>
+autocmd FileType tex nnoremap <buffer> <C-C> :!xelatex %<cr>
+autocmd FileType tex inoremap <buffer> <C-C> :!xelatex %<cr>
+nnoremap <buffer><silent> <leader>w :<c-u>w<cr>
+nnoremap <buffer><silent> <leader>g :<c-u>Goyo<cr>
+nnoremap <buffer><silent> <leader>l :<c-u>Limelight<cr>
+nnoremap <buffer><silent> <leader>s :<c-u>Snippets<cr>
+nnoremap <buffer><silent> <leader>f :<c-u>Files<cr>
 
 
 " ============================================
@@ -212,11 +220,13 @@ colorscheme dracula
 " Some tab completions Omnicmpletions
 filetype plugin indent on
 set omnifunc=syntaxcomplete#Complete
+" vimcompletesme options
+autocmd FileType vim let b:vcm_tab_complete = 'vim'
 " vim-pandoc options
 let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
-let g:pandoc#spell#enabled = 0
+let g:pandoc#spell#enabled = 1
 " vim-pandoc-after integration
-let g:pandoc#after#modules#enabled = ["ultisnips"]
+let g:pandoc#after#modules#enabled = ["ultisnips", "vimcompletesme"]
 " vim wiki opt
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'syntax': 'markdown'}]

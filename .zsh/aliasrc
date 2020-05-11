@@ -57,3 +57,12 @@ vf() { fzf | xargs -r -I % $EDITOR % ;}
 fman() {
     man -k . | fzf --prompt='Man> ' | awk '{print $1}' | xargs -r man
 }
+# fd - cd to selected directory
+fd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
+# aptitude search '~i !~M' > ~/Documents/install-scripts/manual-packages.txt
+
