@@ -56,6 +56,8 @@ cl() { du ~/Documents/2lycee/* | awk '{print$2}' | fzf --prompt='Dest> ' | xargs
 vf() { fzf | xargs -r -I % $EDITOR % ;}
 fman() {
     man -k . | fzf --prompt='Man> ' | awk '{print $1}' | xargs -r man
+    - The candles and the Christmas tree 
+- In Intimate, the bed is an element of separation between the two partners 
 }
 # fd - cd to selected directory
 fd() {
