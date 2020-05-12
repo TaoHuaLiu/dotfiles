@@ -160,7 +160,7 @@ set backspace=indent,eol,start
 " See https://vi.stackexchange.com/questions/17549/using-pandoc-with-vim-keybindings
 " Faster Make
 autocmd FileType pandoc noremap <buffer><silent> <leader>pb :<c-u>Pandoc! beamer -s<cr> 
-autocmd FileType pandoc noremap <buffer><silent> <leader>pp :<c-u>Pandoc! -f markdown+raw_tex+citations -s pdf<cr> 
+autocmd FileType pandoc noremap <buffer><silent> <leader>pp :<c-u>Pandoc! pdf -s<cr> 
 autocmd FileType pandoc noremap <buffer><silent> <leader>ph :<c-u>Pandoc! html -s --mathjax<cr> 
 " autocmd for filetype specific
 autocmd FileType pandoc nnoremap <buffer><silent> <leader>pd :<c-u>Pandoc! docx -s --mathjax<cr> 
@@ -230,6 +230,7 @@ let g:pandoc#after#modules#enabled = ["ultisnips", "vimcompletesme"]
 " vim wiki opt
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'syntax': 'markdown'}]
+" FZF options
 
 " GUI options
 set guioptions-=m  "remove menu bar

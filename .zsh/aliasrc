@@ -51,7 +51,7 @@ alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 sl() { du -a ~/Documents/2lycee/* | awk '{print$2}' | grep -e ".md" -e ".txt" -e ".tex" -e ".html" | fzf | xargs -r $EDITOR ;}
 sp() { du -a ~/Documents/2lycee/* ~/Downloads/* | awk '{print$2}' | grep .pdf | fzf | xargs -r zathura ;}
 # Copy to desired directory
-cl() { du ~/Documents/2lycee/* | awk '{print$2}' | fzf --prompt='Dest> ' | xargs -r mv -vi "$1" ;}
+cl() { du ~/Documents/2lycee/* | awk '{print$2}' | fzf --prompt='Dest> ' | xargs -r mv -vi "$1" "$2" "$3" "$4" ;}
 
 vf() { fzf | xargs -r -I % $EDITOR % ;}
 fman() {
