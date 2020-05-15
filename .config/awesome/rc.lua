@@ -586,4 +586,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- Autostart Apps
--- awful.spawn.with_shell("redshift")
+awful.spawn.with_shell("fcitx-autostart")

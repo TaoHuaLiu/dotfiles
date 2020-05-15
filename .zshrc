@@ -1,4 +1,5 @@
 export EDITOR='vim'
+export VISUAL="$EDITOR"
 export TERM="xterm-256color"
 
 HISTFILE=~/.histfile

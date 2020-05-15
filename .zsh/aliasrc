@@ -27,6 +27,7 @@ alias ls='ls --color=auto --human -B'
 alias ll='ls -lAh --color=auto'
 # ls, the common ones I use a lot shortened for rapid fire usage
 alias l='ls -lFh --color=auto'     #size,show type,human readable
+alias lb='ls -laFh --color=auto'     #size,show type,human readable
 alias la='ls -lAFh --color=auto'   #long list,show almost all,show type,human readable
 alias lr='ls -tRFh --color=auto'   #sorted by date,recursive,show type,human readable
 alias lt='ls -ltFh --color=auto'   #long list,sorted by date,show type,human readable
@@ -51,7 +52,7 @@ alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 sl() { du -a ~/Documents/2lycee/* | awk '{print$2}' | grep -e ".md" -e ".txt" -e ".tex" -e ".html" | fzf | xargs -r $EDITOR ;}
 sp() { du -a ~/Documents/2lycee/* ~/Downloads/* | awk '{print$2}' | grep .pdf | fzf | xargs -r zathura ;}
 # Copy to desired directory
-cl() { du ~/Documents/2lycee/* | awk '{print$2}' | fzf --prompt='Dest> ' | xargs -r mv -vi "$1" "$2" "$3" "$4" ;}
+cl() { du ~/Documents/2lycee/* | awk '{print$2}' | fzf --prompt='Dest> ' | xargs -r mv -vi "$1" "$2" "$3" "$4" -t ;}
 
 vf() { fzf | xargs -r -I % $EDITOR % ;}
 fman() {
