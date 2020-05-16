@@ -67,5 +67,8 @@ fd() {
                   -o -type d -print 2> /dev/null | fzf +m) &&
   cd "$dir"
 }
-# aptitude search '~i !~M' > ~/Documents/install-scripts/manual-packages.txt
-
+# aptitude search '~i !~M' -F %p > ~/Documents/install-scripts/manual-packages.txt
+# Search man pages
+fman() {
+    man -k . | fzf --prompt='Man> ' | awk '{print $1}' | xargs -r man
+}

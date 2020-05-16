@@ -29,6 +29,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-fugitive'
 Plugin 'ajh17/VimCompletesMe'
+Plugin 'ap/vim-css-color'
 " Track the engine.
 Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
@@ -161,18 +162,16 @@ set backspace=indent,eol,start
 " Faster Make
 autocmd FileType pandoc noremap <buffer><silent> <leader>pb :<c-u>Pandoc! beamer -s<cr> 
 autocmd FileType pandoc noremap <buffer><silent> <leader>pp :<c-u>Pandoc! pdf -s<cr> 
-autocmd FileType pandoc noremap <buffer><silent> <leader>ph :<c-u>Pandoc! html -s --mathjax<cr> 
+autocmd FileType pandoc noremap <buffer><silent> <leader>ph :<c-u>Pandoc! ms -s -o %:r.pdf<cr>
 " autocmd for filetype specific
 autocmd FileType pandoc nnoremap <buffer><silent> <leader>pd :<c-u>Pandoc! docx -s --mathjax<cr> 
-autocmd FileType html nnoremap <buffer><silent> <leader>oh :<c-u>silent call system('lynx'.expand('%:p:r:S').'.html')<cr>
 autocmd FileType tex nnoremap <buffer><silent> <leader>op :<c-u>silent call system('zathura '.expand('%:p:r:S').'.pdf')<cr>
 " Without vim-pandoc
 " autocmd FileType pandoc nnoremap <buffer> <leader>pd :<c-u>!pandoc -f markdown -t docx -s --mathjax -o %:r.docx %<CR> 
 " autocmd FileType pandoc noremap <leader>pb :<c-u>!pandoc -f markdown --pdf-engine=xelatex -t beamer -s -o %:r.pdf %<CR> 
 
 " Quick latex render keymap
-autocmd FileType tex nnoremap <buffer> <C-C> :!xelatex %<cr>
-autocmd FileType tex inoremap <buffer> <C-C> :!xelatex %<cr>
+autocmd FileType tex nnoremap <buffer> <leader>t :<c-u>LLPStartPreview<cr>
 nnoremap <buffer><silent> <leader>w :<c-u>w<cr>
 nnoremap <buffer><silent> <leader>g :<c-u>Goyo<cr>
 nnoremap <buffer><silent> <leader>l :<c-u>Limelight<cr>
@@ -224,9 +223,10 @@ set omnifunc=syntaxcomplete#Complete
 autocmd FileType vim let b:vcm_tab_complete = 'vim'
 " vim-pandoc options
 let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
-let g:pandoc#spell#enabled = 1
+let g:pandoc#spell#enabled = 0
 " vim-pandoc-after integration
 let g:pandoc#after#modules#enabled = ["ultisnips", "vimcompletesme"]
+let g:pandoc#folding#fold_yaml = 1
 " vim wiki opt
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'syntax': 'markdown'}]
