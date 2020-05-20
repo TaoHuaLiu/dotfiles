@@ -24,9 +24,9 @@ ex ()
 
 
 alias ls='ls --color=auto --human -B'
-alias ll='ls -lAh --color=auto'
+alias ll='ls -lAFh --color=auto'
 # ls, the common ones I use a lot shortened for rapid fire usage
-alias l='ls -lFh --color=auto'     #size,show type,human readable
+alias l='ls -ltBFh --color=auto'     #size,show type,human readable
 alias lb='ls -laFh --color=auto'     #size,show type,human readable
 alias la='ls -lAFh --color=auto'   #long list,show almost all,show type,human readable
 alias lr='ls -tRFh --color=auto'   #sorted by date,recursive,show type,human readable
@@ -38,7 +38,6 @@ alias grep='grep --color'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-alias code='snap run code'
 alias tsm='transmission-remote'
 alias ..='cd ..'
 alias batt='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage"'
@@ -46,6 +45,7 @@ alias ra='ranger'
 alias z='zathura'
 # Dotfile management with git bare
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias info='info --vi-keys'
 
 # Scritps
 

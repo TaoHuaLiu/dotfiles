@@ -2,6 +2,8 @@ set statusbar-h-padding 0
 set statusbar-v-padding 0
 set page-padding 1
 set zoom-step 20
+set recolor-darkcolor #002B36
+set recolor-lightcolor #eee8d5
 set selection-clipboard clipboard
 set statusbar-home-tilde true
 set statusbar-basename true

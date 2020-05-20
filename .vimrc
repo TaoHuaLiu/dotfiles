@@ -14,7 +14,7 @@ Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'vim-pandoc/vim-pandoc-after'
 Plugin 'vim-pandoc/vim-rmarkdown'
 " A Vim Plugin for Lively Previewing LaTeX PDF Output
-Plugin 'xuhdev/vim-latex-live-preview'
+Plugin 'lervag/vimtex'
 " Focus mode
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
@@ -28,10 +28,10 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-abolish'
 Plugin 'ajh17/VimCompletesMe'
 Plugin 'ap/vim-css-color'
 " Track the engine.
-Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 " Dracula theme
@@ -170,7 +170,6 @@ autocmd FileType tex nnoremap <buffer><silent> <leader>op :<c-u>silent call syst
 " autocmd FileType pandoc nnoremap <buffer> <leader>pd :<c-u>!pandoc -f markdown -t docx -s --mathjax -o %:r.docx %<CR> 
 " autocmd FileType pandoc noremap <leader>pb :<c-u>!pandoc -f markdown --pdf-engine=xelatex -t beamer -s -o %:r.pdf %<CR> 
 
-" Quick latex render keymap
 autocmd FileType tex nnoremap <buffer> <leader>t :<c-u>LLPStartPreview<cr>
 nnoremap <buffer><silent> <leader>w :<c-u>w<cr>
 nnoremap <buffer><silent> <leader>g :<c-u>Goyo<cr>
@@ -186,38 +185,34 @@ nnoremap <buffer><silent> <leader>f :<c-u>Files<cr>
 " Tex highlighting
 let g:tex_flavor = "latex"
 
-" VIM LATEX LIVE PREVIEW
-let g:livepreview_previewer = 'zathura'
-let g:livepreview_engine = 'xelatex'
-
 " VIM AIRLINE
 " Enable wordcount
 let g:airline#extensions#wordcount#enabled = 1
 " Add notes to filetypes
-let g:airline#extensions#wordcount#filetypes = '\help|markdown|rst|pandoc|org|text|asciidoc|tex|mail'
+let g:airline#extensions#wordcount#filetypes = 'pandoc|text|tex'
 let g:airline_powerline_fonts = 1
 " A tab bar
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 0
 " Straight tabs 
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#vimtex#enabled = 1
 " airline theme
 let g:airline_theme='violet'
 
 " some way to get dictionarues
-let g:spellfile_URL = 'http://ftp.vim.org/vim/runtime/spell'
+" let g:spellfile_URL = 'http://ftp.vim.org/vim/runtime/spell'
 " ULTISNIPS
 " Trigger configuration
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 " COLORS
 colorscheme dracula
 " Some tab completions Omnicmpletions
-filetype plugin indent on
 set omnifunc=syntaxcomplete#Complete
 " vimcompletesme options
 autocmd FileType vim let b:vcm_tab_complete = 'vim'

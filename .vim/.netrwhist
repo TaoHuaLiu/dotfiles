@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =6
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/usr/share/doc/aptitude'
+let g:netrw_dirhist_7='/home/hugo/.config/alacritty'
 let g:netrw_dirhist_6='/home/hugo/.local/bin'
 let g:netrw_dirhist_5='/home/hugo/.config/awesome'
 let g:netrw_dirhist_4='/home/hugo/.vim/bundle/vim-pandoc-after/autoload/pandoc/after'
