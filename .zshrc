@@ -1,5 +1,5 @@
 # Default environment variable
-export EDITOR='vim'
+export EDITOR="nvim"
 export VISUAL="$EDITOR"
 export TERM="xterm-256color"
 export BROWSER="firefox"

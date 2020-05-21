@@ -9,35 +9,36 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'vim-pandoc/vim-pandoc'
-Plugin 'vim-pandoc/vim-pandoc-syntax'
-Plugin 'vim-pandoc/vim-pandoc-after'
-Plugin 'vim-pandoc/vim-rmarkdown'
-" A Vim Plugin for Lively Previewing LaTeX PDF Output
-Plugin 'lervag/vimtex'
-" Focus mode
+" WRINTING 
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
+" FIELS 
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'vimwiki/vimwiki'
+" EDITING 
+Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-abolish'
-Plugin 'ajh17/VimCompletesMe'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'reedes/vim-pencil'
+" Languages 
 Plugin 'ap/vim-css-color'
-" Track the engine.
-" Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
-" Dracula theme
-Plugin 'dracula/vim', { 'name': 'dracula' }
+Plugin 'lervag/vimtex'
+Plugin 'vim-pandoc/vim-pandoc'
+Plugin 'vim-pandoc/vim-pandoc-syntax'
+Plugin 'vim-pandoc/vim-pandoc-after'
+Plugin 'vim-pandoc/vim-rmarkdown'
+Plugin 'reedes/vim-lexical'
+" COLORS 
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'dikiaap/minimalist'
+Plugin 'altercation/vim-colors-solarized'
 
-" All of your Plugins must be added before the following line
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
@@ -133,6 +134,7 @@ set ttimeoutlen=100	" wait up to 100ms after Esc for special key
 set display=truncate
 set history=200
 set showcmd
+set hidden
 
 " Completion for file open etc.
 set wildmenu
@@ -149,6 +151,8 @@ set directory=~/.cache/swaps
 " insert.
 set backspace=indent,eol,start
 
+" SPELL OPTIONS
+set spelllang=fr,en_us,es
 " makes vim default register = the system clipboard
 " set clipboard+=unnamed 
 
@@ -189,7 +193,7 @@ let g:tex_flavor = "latex"
 " Enable wordcount
 let g:airline#extensions#wordcount#enabled = 1
 " Add notes to filetypes
-let g:airline#extensions#wordcount#filetypes = 'pandoc|text|tex'
+let g:airline#extensions#wordcount#filetypes = '\pandoc|text|tex'
 let g:airline_powerline_fonts = 1
 " A tab bar
 let g:airline#extensions#tabline#enabled = 0
@@ -202,30 +206,29 @@ let g:airline_theme='violet'
 
 " some way to get dictionarues
 " let g:spellfile_URL = 'http://ftp.vim.org/vim/runtime/spell'
-" ULTISNIPS
-" Trigger configuration
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
 " COLORS
-colorscheme dracula
+syntax on
+colorscheme minimalist
 " Some tab completions Omnicmpletions
 set omnifunc=syntaxcomplete#Complete
 " vimcompletesme options
-autocmd FileType vim let b:vcm_tab_complete = 'vim'
 " vim-pandoc options
 let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
 let g:pandoc#spell#enabled = 0
 " vim-pandoc-after integration
-let g:pandoc#after#modules#enabled = ["ultisnips", "vimcompletesme"]
+let g:pandoc#after#modules#enabled = ["ultisnips"]
 let g:pandoc#folding#fold_yaml = 1
-" vim wiki opt
-let g:vimwiki_list = [{'path': '~/vimwiki/',
-                      \ 'syntax': 'markdown'}]
 " FZF options
+" Vim-Pencil
+let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
+
+" vim-lexical
+augroup lexical
+  autocmd!
+  autocmd FileType markdown,mkd call lexical#init()
+  autocmd FileType pandoc call lexical#init()
+  autocmd FileType text call lexical#init({ 'spell': 0 })
+augroup END
 
 " GUI options
 set guioptions-=m  "remove menu bar
