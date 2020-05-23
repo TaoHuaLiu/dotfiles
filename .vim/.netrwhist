@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =8
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/home/hugo'
 let g:netrw_dirhist_8='/usr/share/doc/aptitude'
 let g:netrw_dirhist_7='/home/hugo/.config/alacritty'
 let g:netrw_dirhist_6='/home/hugo/.local/bin'

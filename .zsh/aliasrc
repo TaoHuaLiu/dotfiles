@@ -43,6 +43,7 @@ alias ..='cd ..'
 alias batt='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage"'
 alias ra='ranger'
 alias z='zathura'
+alias v='nvim'
 # Dotfile management with git bare
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias info='info --vi-keys'
@@ -72,3 +73,6 @@ fd() {
 fman() {
     man -k . | fzf --prompt='Man> ' | awk '{print $1}' | xargs -r man
 }
+#dman() {
+#    man "$(apropos --long "$1" | dmenu -i -l 10 | awk '{print $2, $1}' | tr -d '()')"
+#}

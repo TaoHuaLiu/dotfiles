@@ -15,6 +15,7 @@ Plugin 'junegunn/limelight.vim'
 " FIELS 
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
+Plugin 'preservim/nerdtree'
 " EDITING 
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-surround'
@@ -24,6 +25,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'reedes/vim-pencil'
+Plugin 'simnalamburt/vim-mundo'
 " Languages 
 Plugin 'ap/vim-css-color'
 Plugin 'lervag/vimtex'
@@ -37,6 +39,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'dikiaap/minimalist'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'reedes/vim-colors-pencil'
 
 
 call vundle#end()            " required
@@ -44,6 +47,8 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 set encoding=utf-8
+" makes vim default register = the system clipboard
+set clipboard+=unnamed 
 
 " ============================================
 " ============================================
@@ -84,6 +89,7 @@ if has("vms")
 else
   set backup		" keep a backup file (restore to previous version)
   if has('persistent_undo')
+    set undodir=~/.vim/undo
     set undofile	" keep an undo file (undo changes after closing)
   endif
 endif
@@ -153,8 +159,8 @@ set backspace=indent,eol,start
 
 " SPELL OPTIONS
 set spelllang=fr,en_us,es
-" makes vim default register = the system clipboard
-" set clipboard+=unnamed 
+" THEMEING
+set background=dark
 
 " ===================================
 " LEADER SHORTCUTS 
@@ -193,31 +199,28 @@ let g:tex_flavor = "latex"
 " Enable wordcount
 let g:airline#extensions#wordcount#enabled = 1
 " Add notes to filetypes
-let g:airline#extensions#wordcount#filetypes = '\pandoc|text|tex'
 let g:airline_powerline_fonts = 1
 " A tab bar
 let g:airline#extensions#tabline#enabled = 0
 " Straight tabs 
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#vimtex#enabled = 1
 " airline theme
-let g:airline_theme='violet'
+let g:airline_theme='pencil'
+" vim Pencil colors
+let g:pencil_terminal_italics = 1
 
-" some way to get dictionarues
-" let g:spellfile_URL = 'http://ftp.vim.org/vim/runtime/spell'
 " COLORS
 syntax on
-colorscheme minimalist
+colorscheme pencil
 " Some tab completions Omnicmpletions
-set omnifunc=syntaxcomplete#Complete
+" set omnifunc=syntaxcomplete#Complete
 " vimcompletesme options
 " vim-pandoc options
 let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
 let g:pandoc#spell#enabled = 0
 " vim-pandoc-after integration
-let g:pandoc#after#modules#enabled = ["ultisnips"]
 let g:pandoc#folding#fold_yaml = 1
+let g:pandoc#syntax#conceal#use = 0
 " FZF options
 " Vim-Pencil
 let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'

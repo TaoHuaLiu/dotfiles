@@ -17,7 +17,6 @@ zstyle :compinstall filename '/home/hugo/.zshrc'
 
 # Enable colors and change prompt:
 autoload -U colors && colors
-# PS1='%B%F{240}%1~%f%b %# %F{green}> '
 PS1='%(?.%F{green}>.%F{red}?%?)%f %B%F{240}%1~%f%b %# '
 
 autoload -Uz compinit
@@ -46,15 +45,14 @@ zstyle ':vcs_info:*' enable git
 source $HOME/.mancolor
 if [ -x "$HOME/.mancolor" ]; then
     source $HOME/.mancolor
-else 
-    export LESS_TERMCAP_mb=$'\e[1;32m'
-    export LESS_TERMCAP_md=$'\e[1;32m'
-    export LESS_TERMCAP_me=$'\e[0m'
-    export LESS_TERMCAP_se=$'\e[0m'
-    export LESS_TERMCAP_so=$'\e[01;33m'
-    export LESS_TERMCAP_ue=$'\e[0m'
-    export LESS_TERMCAP_us=$'\e[1;4;31m'
 fi
+export LESS_TERMCAP_mb=$'\e[1;32m'
+export LESS_TERMCAP_md=$'\e[1;32m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[01;33m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[1;4;31m'
 # Options
 #   Corrections
 # Expand Path
