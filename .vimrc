@@ -48,7 +48,7 @@ filetype plugin indent on    " required
 
 set encoding=utf-8
 " makes vim default register = the system clipboard
-set clipboard+=unnamed 
+set clipboard+=unnamedplus 
 
 " ============================================
 " ============================================
@@ -128,6 +128,8 @@ set shiftwidth=4
 set tabstop=4
 
 set autowrite 
+" EDIT NON-WHITESPACE
+set virtualedit=block
 set autochdir
 set relativenumber
 set number
@@ -158,7 +160,8 @@ set directory=~/.cache/swaps
 set backspace=indent,eol,start
 
 " SPELL OPTIONS
-set spelllang=fr,en_us,es
+set spelllang=fr,en_us,es,cjk
+set spellsuggest+=10 
 " THEMEING
 set background=dark
 
@@ -230,6 +233,7 @@ augroup lexical
   autocmd!
   autocmd FileType markdown,mkd call lexical#init()
   autocmd FileType pandoc call lexical#init()
+  autocmd FileType latex call lexical#init()
   autocmd FileType text call lexical#init({ 'spell': 0 })
 augroup END
 

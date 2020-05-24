@@ -1,4 +1,5 @@
-# # ex - archive extractor
+(( $+commands[apt] )) && APT=apt || APT=apt-get 
+## ex - archive extractor
 # # usage: ex <file>
 ex ()
 {
@@ -47,6 +48,46 @@ alias v='nvim'
 # Dotfile management with git bare
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias info='info --vi-keys'
+alias weather='curl wttr.in/Shanghai'
+alias def='dict -d gcide'
+
+
+# APTITUDE SHORTCUTS 
+
+alias acs='apt-cache search'
+
+alias afs='apt-file search --regexp'
+
+# These are apt/apt-get only
+alias ags="$APT source"
+
+alias acp='apt-cache policy'
+
+#List all installed packages
+
+# List available updates only
+alias aglu='apt list --upgradable'
+
+# superuser operations ######################################################
+
+alias afu='sudo apt-file update'
+
+alias ppap='sudo ppa-purge'
+
+alias age="sudo $APT"
+alias aga="sudo $APT autoclean"
+alias agb="sudo $APT build-dep"
+alias agc="sudo $APT clean"
+alias agd="sudo $APT dselect-upgrade"
+alias agi="sudo $APT install"
+alias agp="sudo $APT purge"
+alias agr="sudo $APT remove"
+alias agu="sudo $APT update"
+alias agud="sudo $APT update && sudo $APT dist-upgrade"
+alias agug="sudo $APT upgrade"
+alias aguu="sudo $APT update && sudo $APT upgrade"
+alias agar="sudo $APT autoremove"
+
 
 # Functions
 
