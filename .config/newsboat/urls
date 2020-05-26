@@ -7,10 +7,10 @@ https://sachachua.com/feed "Emacs"
 https://lukesmith.xyz/rss.xml "Linux"
 https://lukesmith.xyz/youtube.xml "Linux"
 https://programminghistorian.org/feed.xml "Research"
-https://feedly.com/i/subscription/feed/https://blog.ncase.me/rss/ "Fun"
+https://blog.ncase.me/rss/ "Fun"
 http://cognitivemedium.com/feed.xml
 https://x86blog.com/feed/ "Emacs"
-https://feedly.com/i/subscription/feed/https://blog.ktz.me/rss/ "Linux"
+https://blog.ktz.me/rss/ "Linux"
 https://sudoedit.com/feed/ "Linux"
 http://gnuworldorder.info/ogg.atom.xml "Linux"
 http://gnuworldorder.info/ogg.xml
@@ -18,4 +18,11 @@ https://jdhao.github.io/index.xml "Tech"
 http://feeds.arstechnica.com/arstechnica/technology-lab "Tech"
 http://tonsky.me/blog/atom.xml "Design"
 https://aliceevebob.com/feed/ "Security"
-http://abloz.com/feed
+http://abloz.com/feed "Tech"
+https://project-syndicate.org/rss "Politics"
+http://api.quantamagazine.org/feed/ "science"
+https://www.calnewport.com/blog/feed/ "study"
+https://cortecs.org/feed/ study
+https://www.lawfareblog.com/rss.xml politics
+https://freedom-to-tinker.com/feed/rss/  tech
+https://aeon.co/feed.rss politics

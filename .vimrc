@@ -1,5 +1,3 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -12,10 +10,11 @@ Plugin 'VundleVim/Vundle.vim'
 " WRINTING 
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
-" FIELS 
-Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plugin 'junegunn/fzf.vim'
+" FILES 
+" Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plugin 'junegunn/fzf.vim'
 Plugin 'preservim/nerdtree'
+Plugin 'tpope/vim-eunuch'
 " EDITING 
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-surround'
@@ -26,19 +25,20 @@ Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'reedes/vim-pencil'
 Plugin 'simnalamburt/vim-mundo'
+" Plugin 'reedes/vim-litecorrect'
 " Languages 
 Plugin 'ap/vim-css-color'
-Plugin 'lervag/vimtex'
+" Plugin 'lervag/vimtex'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'vim-pandoc/vim-pandoc-after'
-Plugin 'vim-pandoc/vim-rmarkdown'
+" Plugin 'vim-pandoc/vim-rmarkdown'
 Plugin 'reedes/vim-lexical'
 " COLORS 
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'dikiaap/minimalist'
-Plugin 'altercation/vim-colors-solarized'
+" Plugin 'dikiaap/minimalist'
+" Plugin 'altercation/vim-colors-solarized'
 Plugin 'reedes/vim-colors-pencil'
 
 
@@ -52,11 +52,12 @@ set clipboard+=unnamedplus
 
 " ============================================
 " ============================================
-" REMAPS
-" ============================================
+" REMAPS ============================================
 " Leader key = space
 nnoremap <SPACE> <Nop>
 let mapleader = ' '
+nnoremap ; :
+xnoremap ; :
 " Don't use Ex mode, use Q for formatting.
 " Revert with :unmap Q.
 map Q gq
@@ -129,7 +130,7 @@ set tabstop=4
 
 set autowrite 
 " EDIT NON-WHITESPACE
-set virtualedit=block
+set virtualedit="block"
 set autochdir
 set relativenumber
 set number
@@ -143,6 +144,8 @@ set display=truncate
 set history=200
 set showcmd
 set hidden
+set magic
+set termguicolors
 
 " Completion for file open etc.
 set wildmenu
@@ -187,8 +190,7 @@ autocmd FileType tex nnoremap <buffer> <leader>t :<c-u>LLPStartPreview<cr>
 nnoremap <buffer><silent> <leader>w :<c-u>w<cr>
 nnoremap <buffer><silent> <leader>g :<c-u>Goyo<cr>
 nnoremap <buffer><silent> <leader>l :<c-u>Limelight<cr>
-nnoremap <buffer><silent> <leader>s :<c-u>Snippets<cr>
-nnoremap <buffer><silent> <leader>f :<c-u>Files<cr>
+nnoremap <buffer><silent> <leader>f :<c-u>NERDTreeToggle<cr>
 
 
 " ============================================
@@ -211,6 +213,7 @@ let g:airline#extensions#vimtex#enabled = 1
 let g:airline_theme='pencil'
 " vim Pencil colors
 let g:pencil_terminal_italics = 1
+let g:airline_section_x = '%{PencilMode()}'
 
 " COLORS
 syntax on
@@ -228,15 +231,20 @@ let g:pandoc#syntax#conceal#use = 0
 " Vim-Pencil
 let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
 
-" vim-lexical
-augroup lexical
+augroup pencil
   autocmd!
-  autocmd FileType markdown,mkd call lexical#init()
-  autocmd FileType pandoc call lexical#init()
-  autocmd FileType latex call lexical#init()
-  autocmd FileType text call lexical#init({ 'spell': 0 })
-augroup END
-
+  autocmd FileType markdown,mkd call pencil#init()
+                            \ | call lexical#init()
+"                            \ | call litecorrect#init()
+  autocmd FileType help         call pencil#init()
+                            \ | call lexical#init()
+"                            \ | call litecorrect#init()
+  autocmd FileType pandoc       call pencil#init()
+                            \ | call lexical#init()
+"                            \ | call litecorrect#init()
+  autocmd FileType text         call pencil#init()
+                            \ | call lexical#init()
+"                            \ | call litecorrect#init()
 " GUI options
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar

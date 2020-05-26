@@ -56,7 +56,7 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 # Options
 #   Corrections
 # Expand Path
-export PATH=$PATH:$HOME/.local/bin
+# export PATH=$PATH:$HOME/.local/bin
 # setopt CORRECT
 # setopt CORRECT_ALL
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ;} history -a"
