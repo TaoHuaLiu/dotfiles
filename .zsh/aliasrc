@@ -96,7 +96,7 @@ sl() { du -a ~/Documents/2lycee/* | awk '{print$2}' | grep -e ".md" -e ".txt" -e
 sp() { du -a ~/Documents/2lycee/* ~/Downloads/* | awk '{print$2}' | grep .pdf | fzf | xargs -r zathura ;}
 seb() { du -a ~/Documents/* ~/manpages/bman/* | awk '{print$2}' | grep -e '.epub' | fzf | xargs -r ebook-viewer ;}
 # Copy to desired directory
-cl() { du ~/Documents/2lycee/* | awk '{print$2}' | fzf --prompt='Dest> ' | xargs -r mv -vi "$1" "$2" "$3" "$4" -t ;}
+cl() { du ~/Documents/2lycee/* | awk '{print$2}' | fzf --prompt='Dest> ' | xargs -r mv -vi "$1" [ -n "$2" ] [ -n "$3" ] [ -n "$4" ] -t ;}
 
 vf() { fzf | xargs -r -I % $EDITOR % ;}
 fman() {
@@ -114,7 +114,7 @@ fd() {
 # apt-mark showmanual > ~/Documents/install-scripts/manual-packages.txt
 # Search man pages
 fman() {
-    man -k . | fzf --prompt='Man> ' | awk '{print $1}' | xargs -r man
+    apropos --long . | fzf --prompt='Man> ' | awk '{print $1}' | xargs -r man
 }
 #dman() {
 #    man "$(apropos --long "$1" | dmenu -i -l 10 | awk '{print $2, $1}' | tr -d '()')"
@@ -122,3 +122,8 @@ fman() {
 urls() {
     echo "$1" >> $HOME/.config/newsboat/urls
 }
+
+
+# testman() {
+#     man -k "$1" | fzf | awk '{print $1}' | xargs -r man -w | xargs -r ./.mancolor
+# }

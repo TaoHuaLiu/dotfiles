@@ -42,10 +42,7 @@ zstyle ':vcs_info:*' enable git
 # Custom ZSH Binds
 # bindkey '^L' autosuggest-accept
 # Color schemes for man pages
-source $HOME/.mancolor
-if [ -x "$HOME/.mancolor" ]; then
-    source $HOME/.mancolor
-fi
+[ -x "$HOME/.mancolor" ] && source $HOME/.mancolor
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'
 export LESS_TERMCAP_me=$'\e[0m'
@@ -70,6 +67,6 @@ bindkey '^e' edit-command-line
 bindkey 'jj' vi-cmd-mode
 
 # Plugins
-source /usr/share/autojump/autojump.sh
-source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[ -f "/usr/share/autojump/autojump.sh" ] && source /usr/share/autojump/autojump.sh
+[ -f "/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ] && source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+[ -f "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] && source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

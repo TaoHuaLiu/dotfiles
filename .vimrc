@@ -23,6 +23,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-ragtag'
 Plugin 'reedes/vim-pencil'
 Plugin 'simnalamburt/vim-mundo'
 " Plugin 'reedes/vim-litecorrect'
@@ -164,7 +165,6 @@ set backspace=indent,eol,start
 
 " SPELL OPTIONS
 set spelllang=fr,en_us,es,cjk
-set spellsuggest+=10 
 " THEMEING
 set background=dark
 
@@ -186,9 +186,8 @@ autocmd FileType tex nnoremap <buffer><silent> <leader>op :<c-u>silent call syst
 " autocmd FileType pandoc nnoremap <buffer> <leader>pd :<c-u>!pandoc -f markdown -t docx -s --mathjax -o %:r.docx %<CR> 
 " autocmd FileType pandoc noremap <leader>pb :<c-u>!pandoc -f markdown --pdf-engine=xelatex -t beamer -s -o %:r.pdf %<CR> 
 
-autocmd FileType tex nnoremap <buffer> <leader>t :<c-u>LLPStartPreview<cr>
 nnoremap <buffer><silent> <leader>w :<c-u>w<cr>
-nnoremap <buffer><silent> <leader>g :<c-u>Goyo<cr>
+" nnoremap <buffer><silent> <leader>y :<c-u>Goyo<cr>
 nnoremap <buffer><silent> <leader>l :<c-u>Limelight<cr>
 nnoremap <buffer><silent> <leader>f :<c-u>NERDTreeToggle<cr>
 
@@ -213,7 +212,6 @@ let g:airline#extensions#vimtex#enabled = 1
 let g:airline_theme='pencil'
 " vim Pencil colors
 let g:pencil_terminal_italics = 1
-let g:airline_section_x = '%{PencilMode()}'
 
 " COLORS
 syntax on
