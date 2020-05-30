@@ -57,7 +57,7 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 # setopt CORRECT
 # setopt CORRECT_ALL
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ;} history -a"
-
+export TODO_DIR="$HOME/.todo"
 # FZF options
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse'
 # Edit line in vim with ctrl-e:

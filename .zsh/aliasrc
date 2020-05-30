@@ -1,4 +1,4 @@
-(( $+commands[apt] )) && APT=apt || APT=apt-get 
+(( $+commands[apt] )) && APT=aptitude || APT=apt-get 
 ## ex - archive extractor
 # # usage: ex <file>
 ex ()
@@ -32,7 +32,7 @@ alias la='ls -lAFh --color=auto'   #long list,show almost all,show type,human re
 alias lr='ls -tRFh --color=auto'   #sorted by date,recursive,show type,human readable
 alias lt='ls -ltFh --color=auto'   #long list,sorted by date,show type,human readable
 alias zshrc='${=EDITOR} ~/.zshrc' # Quick access to the ~/.zshrc file
-alias vimrc='${=EDITOR} ~/.vimrc'
+alias vimrc='${=EDITOR} ~/.config/nvim/init.vim'
 alias aliasrc='${=EDITOR} ~/.zsh/aliasrc'
 alias grep='grep --color'
 alias rm='rm -i'
@@ -55,7 +55,7 @@ alias tp='trash-put'
 
 # APTITUDE SHORTCUTS 
 
-alias acs='apt-cache search'
+alias acs='$APT search'
 
 alias afs='apt-file search --regexp'
 
@@ -96,13 +96,11 @@ sl() { du -a ~/Documents/2lycee/* | awk '{print$2}' | grep -e ".md" -e ".txt" -e
 sp() { du -a ~/Documents/2lycee/* ~/Downloads/* | awk '{print$2}' | grep .pdf | fzf | xargs -r zathura ;}
 seb() { du -a ~/Documents/* ~/manpages/bman/* | awk '{print$2}' | grep -e '.epub' | fzf | xargs -r ebook-viewer ;}
 # Copy to desired directory
-cl() { du ~/Documents/2lycee/* | awk '{print$2}' | fzf --prompt='Dest> ' | xargs -r mv -vi "$1" [ -n "$2" ] [ -n "$3" ] [ -n "$4" ] -t ;}
+cl() { du ~/Documents/2lycee/* | awk '{print$2}' | fzf --prompt='Dest> ' | xargs -r mv -vi "$1"  "$2"  "$3" "$4" -t ;}
 
 vf() { fzf | xargs -r -I % $EDITOR % ;}
 fman() {
     man -k . | fzf --prompt='Man> ' | awk '{print $1}' | xargs -r man
-    - The candles and the Christmas tree 
-- In Intimate, the bed is an element of separation between the two partners 
 }
 # fd - cd to selected directory
 fd() {

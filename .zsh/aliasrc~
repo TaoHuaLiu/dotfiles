@@ -1,10 +1,10 @@
-# # ex - archive extractor
+(( $+commands[apt] )) && APT=aptitude || APT=apt-get 
+## ex - archive extractor
 # # usage: ex <file>
 ex ()
 {
   if [ -f $1 ] ; then
-    case $1 in
-      *.tar.bz2)   tar xjf $1   ;;
+    case $1 in *.tar.bz2)   tar xjf $1   ;;
       *.tar.gz)    tar xzf $1   ;;
       *.bz2)       bunzip2 $1   ;;
       *.rar)       unrar x $1     ;;
@@ -22,23 +22,106 @@ ex ()
   fi
 }
 
-export EDITOR=vim
-
 
 alias ls='ls --color=auto --human -B'
-alias ll='ls -lAh --color=auto'
+alias ll='ls -lAFh --color=auto'
 # ls, the common ones I use a lot shortened for rapid fire usage
-alias l='ls -lFh --color=auto'     #size,show type,human readable
+alias l='ls -ltBFh --color=auto'     #size,show type,human readable
+alias lb='ls -laFh --color=auto'     #size,show type,human readable
 alias la='ls -lAFh --color=auto'   #long list,show almost all,show type,human readable
 alias lr='ls -tRFh --color=auto'   #sorted by date,recursive,show type,human readable
 alias lt='ls -ltFh --color=auto'   #long list,sorted by date,show type,human readable
 alias zshrc='${=EDITOR} ~/.zshrc' # Quick access to the ~/.zshrc file
-alias vimrc='${=EDITOR} ~/.vimrc'
+alias vimrc='${=EDITOR} ~/.config/nvim/init.vim'
+alias aliasrc='${=EDITOR} ~/.zsh/aliasrc'
 alias grep='grep --color'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-alias code='snap run code'
 alias tsm='transmission-remote'
 alias ..='cd ..'
-alias bat='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage"'
+alias batt='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage"'
+alias ra='ranger'
+alias z='zathura'
+alias v='nvim'
+alias vim='nvim'
+# Dotfile management with git bare
+alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias info='info --vi-keys'
+alias weather='curl wttr.in/Shanghai'
+alias def='dict -d gcide'
+alias tp='trash-put'
+
+
+# APTITUDE SHORTCUTS 
+
+alias acs='$APT search'
+
+alias afs='apt-file search --regexp'
+
+# These are apt/apt-get only
+alias ags="$APT source"
+
+alias acp='apt-cache policy'
+
+#List all installed packages
+
+# List available updates only
+alias aglu='apt list --upgradable'
+
+# superuser operations ######################################################
+
+alias afu='sudo apt-file update'
+
+alias ppap='sudo ppa-purge'
+
+alias age="sudo $APT"
+alias aga="sudo $APT autoclean"
+alias agb="sudo $APT build-dep"
+alias agc="sudo $APT clean"
+alias agd="sudo $APT dselect-upgrade"
+alias agi="sudo $APT install"
+alias agp="sudo $APT purge"
+alias agr="sudo $APT remove"
+alias agu="sudo $APT update"
+alias agud="sudo $APT update && sudo $APT dist-upgrade"
+alias agug="sudo $APT upgrade"
+alias aguu="sudo $APT update && sudo $APT upgrade"
+alias agar="sudo $APT autoremove"
+
+
+# Functions
+
+sl() { du -a ~/Documents/2lycee/* | awk '{print$2}' | grep -e ".md" -e ".txt" -e ".tex" -e ".html" | fzf | xargs -r $EDITOR ;}
+sp() { du -a ~/Documents/2lycee/* ~/Downloads/* | awk '{print$2}' | grep .pdf | fzf | xargs -r zathura ;}
+seb() { du -a ~/Documents/* ~/manpages/bman/* | awk '{print$2}' | grep -e '.epub' | fzf | xargs -r ebook-viewer ;}
+# Copy to desired directory
+cl() { du ~/Documents/2lycee/* | awk '{print$2}' | fzf --prompt='Dest> ' | xargs -r mv -vi "$1" [ -n "$2" ] [ -n "$3" ] [ -n "$4" ] -t ;}
+
+vf() { fzf | xargs -r -I % $EDITOR % ;}
+fman() {
+    man -k . | fzf --prompt='Man> ' | awk '{print $1}' | xargs -r man
+}
+# fd - cd to selected directory
+fd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
+# apt-mark showmanual > ~/Documents/install-scripts/manual-packages.txt
+# Search man pages
+fman() {
+    apropos --long . | fzf --prompt='Man> ' | awk '{print $1}' | xargs -r man
+}
+#dman() {
+#    man "$(apropos --long "$1" | dmenu -i -l 10 | awk '{print $2, $1}' | tr -d '()')"
+#}
+urls() {
+    echo "$1" >> $HOME/.config/newsboat/urls
+}
+
+
+# testman() {
+#     man -k "$1" | fzf | awk '{print $1}' | xargs -r man -w | xargs -r ./.mancolor
+# }

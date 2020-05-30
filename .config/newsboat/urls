@@ -1,11 +1,11 @@
 https://opensource.com/feed "Linux"
 https://xkcd.com/atom.xml "Comic"
 https://www.controlaltbackspace.org/feed.xml "Tech"
-https://www.distrotube.com/videos/index.xml "Linux"
+https://www.distrotube.com/videos/index.xml "~DistroTube"
 https://www.enriquedans.com/feed
 https://sachachua.com/feed "Emacs"
-https://lukesmith.xyz/rss.xml "Linux"
-https://lukesmith.xyz/youtube.xml "Linux"
+https://lukesmith.xyz/rss.xml "~Luke's blog"
+https://lukesmith.xyz/youtube.xml "~Luke's vids"
 https://programminghistorian.org/feed.xml "Research"
 https://blog.ncase.me/rss/ "Fun"
 http://cognitivemedium.com/feed.xml
@@ -15,7 +15,7 @@ https://sudoedit.com/feed/ "Linux"
 http://gnuworldorder.info/ogg.atom.xml "Linux"
 http://gnuworldorder.info/ogg.xml
 https://jdhao.github.io/index.xml "Tech"
-http://feeds.arstechnica.com/arstechnica/technology-lab "Tech"
+http://feeds.arstechnica.com/arstechnica/technology-lab "~Ars Technica"
 http://tonsky.me/blog/atom.xml "Design"
 https://aliceevebob.com/feed/ "Security"
 http://abloz.com/feed "Tech"
@@ -26,7 +26,8 @@ https://cortecs.org/feed/ study
 https://www.lawfareblog.com/rss.xml politics
 https://freedom-to-tinker.com/feed/rss/  tech
 https://aeon.co/feed.rss politics
-http://feeds.arstechnica.com/arstechnica/open-source
 https://www.youtube.com/feeds/videos.xml?channel_id=UCVls1GmFKf6WlTraIb_IaJg ''distrotube'
 https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA 'luke smith'
-https://www.reddit.com/r/vim.rss "~REDDIT: r/vim"
+https://www.reddit.com/r/vim.rss "~r/vim"
+https://www.reddit.com/r/commandline.rss "~r/commandline"
+https://productivityalchemy.libsyn.com/rss "Kevin Sonney"

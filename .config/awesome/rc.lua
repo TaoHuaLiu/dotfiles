@@ -73,11 +73,11 @@ awful.layout.layouts = {
     awful.layout.suit.fair,
     awful.layout.suit.fair.horizontal,
     awful.layout.suit.spiral,
-    awful.layout.suit.spiral.dwindle,
+    -- awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
     awful.layout.suit.max.fullscreen,
     awful.layout.suit.magnifier,
-    awful.layout.suit.corner.nw,
+    -- awful.layout.suit.corner.nw,
     -- awful.layout.suit.corner.ne,
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
@@ -187,7 +187,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "internet", "vim", "doc", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+    awful.tag({ "internet", "vim", "doc", "4", "5" }, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -333,7 +333,7 @@ globalkeys = gears.table.join(
     awful.util.spawn('dmenu_run') end,
               {description = "run dmenu", group = "launcher"}),
 
-    -- `awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
+    -- awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
               -- {description = "run prompt", group = "launcher"}),
 
     awful.key({ modkey }, "x",
@@ -516,8 +516,8 @@ awful.rules.rules = {
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { screen = 1, tag = "2" } },
+     { rule = { class = "Firefox" },
+       properties = { screen = 1, tag = "internet" } },
 }
 -- }}}
 
@@ -586,4 +586,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- Autostart Apps
-awful.spawn.with_shell("redshift")
+-- awful.spawn.with_shell("redshift")
