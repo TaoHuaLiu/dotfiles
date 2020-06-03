@@ -22,19 +22,27 @@ Plug 'tpope/vim-ragtag'
 Plug 'reedes/vim-pencil'
 Plug 'simnalamburt/vim-mundo'
 Plug 'junegunn/vim-peekaboo'
+Plug 'sirver/ultisnips'
+    let g:UltiSnipsExpandTrigger = '<tab>'
+    let g:UltiSnipsJumpForwardTrigger = '<tab>'
+    let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 " Plug 'reedes/vim-litecorrect'
 " Languages 
 Plug 'ap/vim-css-color'
 Plug 'lervag/vimtex'
+    let g:tex_flavor = "latex"
+    let g:vimtex_view_method='zathura'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'vimwiki/vimwiki'
 Plug 'vim-pandoc/vim-pandoc-after'
 " Plug 'vim-pandoc/vim-rmarkdown'
-" Plug 'reedes/vim-lexical'
+Plug 'reedes/vim-lexical'
 " COLORS 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Plug 'iCyMind/NeoSolarized'
+Plug 'justinmk/vim-sneak'
 Plug 'reedes/vim-colors-pencil'
 
 call plug#end()
@@ -79,6 +87,8 @@ nnoremap <C-l> <C-w>l
 map <C-n> :bn<cr>
 map <C-p> :bp<cr>
 tnoremap <Esc> <C-\><C-n>
+" Quickly fix prievious spelling mistake with C-l
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 set backup	
 set undofile	" keep an undo file (undo changes after closing)
@@ -122,6 +132,8 @@ set showcmd
 set hidden
 set magic
 set termguicolors
+set scrolloff=10
+set formatprg=par
 
 " Completion for file open etc.
 set wildmenu
@@ -164,7 +176,6 @@ map <leader>d :NERDTreeToggle<cr>
 " PLUGIN OPTIONS
 " ============================================
 " Tex highlighting
-let g:tex_flavor = "latex"
 let g:tex_fold_enabled=1
 " VIM AIRLINE
 " Enable wordcount
@@ -194,7 +205,11 @@ let g:pandoc#syntax#conceal#use = 0
 " FZF options
 " Vim-Pencil
 let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
-
+" vim-sneak 's' to go forward
+let g:sneak#s_next = 1
+let g:sneak#label = 1
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
 augroup pencil
   autocmd!
   autocmd FileType markdown,mkd call pencil#init()

@@ -31,6 +31,7 @@ alias lb='ls -laFh --color=auto'     #size,show type,human readable
 alias la='ls -lAFh --color=auto'   #long list,show almost all,show type,human readable
 alias lr='ls -tRFh --color=auto'   #sorted by date,recursive,show type,human readable
 alias lt='ls -ltFh --color=auto'   #long list,sorted by date,show type,human readable
+alias mkd='mkdir -p'
 alias zshrc='${=EDITOR} ~/.zshrc' # Quick access to the ~/.zshrc file
 alias vimrc='${=EDITOR} ~/.config/nvim/init.vim'
 alias aliasrc='${=EDITOR} ~/.zsh/aliasrc'
@@ -49,7 +50,6 @@ alias vim='nvim'
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias info='info --vi-keys'
 alias weather='curl wttr.in/Shanghai'
-alias def='dict -d gcide'
 alias tp='trash-put'
 
 
@@ -75,7 +75,7 @@ alias afu='sudo apt-file update'
 
 alias ppap='sudo ppa-purge'
 
-alias age="sudo $APT"
+alias age="sudo $APT show"
 alias aga="sudo $APT autoclean"
 alias agb="sudo $APT build-dep"
 alias agc="sudo $APT clean"
@@ -96,7 +96,7 @@ sl() { du -a ~/Documents/2lycee/* | awk '{print$2}' | grep -e ".md" -e ".txt" -e
 sp() { du -a ~/Documents/2lycee/* ~/Downloads/* | awk '{print$2}' | grep .pdf | fzf | xargs -r zathura ;}
 seb() { du -a ~/Documents/* ~/manpages/bman/* | awk '{print$2}' | grep -e '.epub' | fzf | xargs -r ebook-viewer ;}
 # Copy to desired directory
-cl() { du ~/Documents/2lycee/* | awk '{print$2}' | fzf --prompt='Dest> ' | xargs -r mv -vi "$1"  "$2"  "$3" "$4" -t ;}
+cl() { find ~/Documents/2lycee/ -type d | fzf --prompt='Dest> ' | xargs -r mv -vi "$1"  "$2"  "$3" "$4" -t ;}
 
 vf() { fzf | xargs -r -I % $EDITOR % ;}
 fman() {
@@ -107,9 +107,10 @@ fd() {
   local dir
   dir=$(find ${1:-.} -path '*/\.*' -prune \
                   -o -type d -print 2> /dev/null | fzf +m) &&
-  cd "$dir"
+  cd "$dir" }
+update_package_list(){
+    apt-mark showmanual > ~/Documents/install-scripts/manual-packages.txt
 }
-# apt-mark showmanual > ~/Documents/install-scripts/manual-packages.txt
 # Search man pages
 fman() {
     apropos --long . | fzf --prompt='Man> ' | awk '{print $1}' | xargs -r man
@@ -122,6 +123,9 @@ urls() {
 }
 
 
+def() {
+dict -d gcide "$1" | less
+}
 # testman() {
 #     man -k "$1" | fzf | awk '{print $1}' | xargs -r man -w | xargs -r ./.mancolor
 # }
