@@ -75,7 +75,7 @@ alias afu='sudo apt-file update'
 
 alias ppap='sudo ppa-purge'
 
-alias age="sudo $APT show"
+alias age="$APT show"
 alias aga="sudo $APT autoclean"
 alias agb="sudo $APT build-dep"
 alias agc="sudo $APT clean"
@@ -88,6 +88,11 @@ alias agud="sudo $APT update && sudo $APT dist-upgrade"
 alias agug="sudo $APT upgrade"
 alias aguu="sudo $APT update && sudo $APT upgrade"
 alias agar="sudo $APT autoremove"
+
+
+alias exc="expressvpn connect"
+alias exd="expressvpn disconnect"
+alias exs="expressvpn status"
 
 
 # Functions

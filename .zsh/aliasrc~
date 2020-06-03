@@ -50,7 +50,6 @@ alias vim='nvim'
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias info='info --vi-keys'
 alias weather='curl wttr.in/Shanghai'
-alias def='dict -d gcide'
 alias tp='trash-put'
 
 
@@ -76,7 +75,7 @@ alias afu='sudo apt-file update'
 
 alias ppap='sudo ppa-purge'
 
-alias age="sudo $APT show"
+alias age="$APT show"
 alias aga="sudo $APT autoclean"
 alias agb="sudo $APT build-dep"
 alias agc="sudo $APT clean"
@@ -108,8 +107,7 @@ fd() {
   local dir
   dir=$(find ${1:-.} -path '*/\.*' -prune \
                   -o -type d -print 2> /dev/null | fzf +m) &&
-  cd "$dir"
-}
+  cd "$dir" }
 update_package_list(){
     apt-mark showmanual > ~/Documents/install-scripts/manual-packages.txt
 }
@@ -125,6 +123,9 @@ urls() {
 }
 
 
+def() {
+dict -d gcide "$1" | less
+}
 # testman() {
 #     man -k "$1" | fzf | awk '{print $1}' | xargs -r man -w | xargs -r ./.mancolor
 # }

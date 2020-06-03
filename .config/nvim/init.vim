@@ -209,7 +209,7 @@ let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
 let g:sneak#s_next = 1
 let g:sneak#label = 1
 let g:vimwiki_list = [{'path': '~/vimwiki/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
+                      \ 'syntax': 'markdown'}]
 augroup pencil
   autocmd!
   autocmd FileType markdown,mkd call pencil#init()
