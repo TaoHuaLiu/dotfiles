@@ -22,6 +22,7 @@ ex ()
   fi
 }
 
+alias backup='rclone sync --max-age 2d /home/hugo/Documents/2lycee remotebak:Docs -P'
 
 alias ls='ls --color=auto --human -B'
 alias ll='ls -lAFh --color=auto'
@@ -51,6 +52,8 @@ alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias info='info --vi-keys'
 alias weather='curl wttr.in/Shanghai'
 alias tp='trash-put'
+alias rbd='reboot now'
+alias std='shutdown now'
 
 
 # APTITUDE SHORTCUTS 
@@ -90,6 +93,12 @@ alias aguu="sudo $APT update && sudo $APT upgrade"
 alias agar="sudo $APT autoremove"
 
 
+alias exc="expressvpn connect"
+alias exd="expressvpn disconnect"
+alias exs="expressvpn status"
+alias dl="aria2c"
+
+
 # Functions
 
 sl() { du -a ~/Documents/2lycee/* | awk '{print$2}' | grep -e ".md" -e ".txt" -e ".tex" -e ".html" | fzf | xargs -r $EDITOR ;}
@@ -103,7 +112,7 @@ fman() {
     man -k . | fzf --prompt='Man> ' | awk '{print $1}' | xargs -r man
 }
 # fd - cd to selected directory
-fd() {
+fdi() {
   local dir
   dir=$(find ${1:-.} -path '*/\.*' -prune \
                   -o -type d -print 2> /dev/null | fzf +m) &&
@@ -129,3 +138,9 @@ dict -d gcide "$1" | less
 # testman() {
 #     man -k "$1" | fzf | awk '{print $1}' | xargs -r man -w | xargs -r ./.mancolor
 # }
+cpl() {
+    rclone copy "$1" pcloudbak: 
+}
+rpl() {
+    rclone copy pcloudbak:"$1" .
+}

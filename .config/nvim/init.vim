@@ -34,7 +34,7 @@ Plug 'lervag/vimtex'
     let g:vimtex_view_method='zathura'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'vimwiki/vimwiki'
+"Plug 'vimwiki/vimwiki'
 Plug 'vim-pandoc/vim-pandoc-after'
 " Plug 'vim-pandoc/vim-rmarkdown'
 Plug 'reedes/vim-lexical'
@@ -207,9 +207,10 @@ let g:pandoc#syntax#conceal#use = 0
 let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
 " vim-sneak 's' to go forward
 let g:sneak#s_next = 1
+" Labels for quick navigation
 let g:sneak#label = 1
-let g:vimwiki_list = [{'path': '~/vimwiki/',
-                      \ 'syntax': 'markdown'}]
+"let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      " \ 'syntax': 'markdown'}]
 augroup pencil
   autocmd!
   autocmd FileType markdown,mkd call pencil#init()
@@ -224,3 +225,4 @@ augroup pencil
   autocmd FileType text         call pencil#init()
                             \ | call lexical#init()
 "                            \ | call litecorrect#init()
+  autocmd FileType tex          call pencil#init()

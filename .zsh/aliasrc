@@ -1,27 +1,6 @@
 (( $+commands[apt] )) && APT=aptitude || APT=apt-get 
-## ex - archive extractor
-# # usage: ex <file>
-ex ()
-{
-  if [ -f $1 ] ; then
-    case $1 in *.tar.bz2)   tar xjf $1   ;;
-      *.tar.gz)    tar xzf $1   ;;
-      *.bz2)       bunzip2 $1   ;;
-      *.rar)       unrar x $1     ;;
-      *.gz)        gunzip $1    ;;
-      *.tar)       tar xf $1    ;;
-      *.tbz2)      tar xjf $1   ;;
-      *.tgz)       tar xzf $1   ;;
-      *.zip)       unzip $1     ;;
-      *.Z)         uncompress $1;;
-      *.7z)        7z x $1      ;;
-      *)           echo "'$1' cannot be extracted via ex()" ;;
-    esac
-  else
-    echo "'$1' is not a valid file"
-  fi
-}
 
+alias backup='rclone sync --max-age 2d /home/hugo/Documents/2lycee remotebak:Docs -P'
 
 alias ls='ls --color=auto --human -B'
 alias ll='ls -lAFh --color=auto'
@@ -51,6 +30,8 @@ alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias info='info --vi-keys'
 alias weather='curl wttr.in/Shanghai'
 alias tp='trash-put'
+alias rbd='reboot now'
+alias std='shutdown now'
 
 
 # APTITUDE SHORTCUTS 
@@ -93,44 +74,6 @@ alias agar="sudo $APT autoremove"
 alias exc="expressvpn connect"
 alias exd="expressvpn disconnect"
 alias exs="expressvpn status"
+alias dl="aria2c"
 
 
-# Functions
-
-sl() { du -a ~/Documents/2lycee/* | awk '{print$2}' | grep -e ".md" -e ".txt" -e ".tex" -e ".html" | fzf | xargs -r $EDITOR ;}
-sp() { du -a ~/Documents/2lycee/* ~/Downloads/* | awk '{print$2}' | grep .pdf | fzf | xargs -r zathura ;}
-seb() { du -a ~/Documents/* ~/manpages/bman/* | awk '{print$2}' | grep -e '.epub' | fzf | xargs -r ebook-viewer ;}
-# Copy to desired directory
-cl() { find ~/Documents/2lycee/ -type d | fzf --prompt='Dest> ' | xargs -r mv -vi "$1"  "$2"  "$3" "$4" -t ;}
-
-vf() { fzf | xargs -r -I % $EDITOR % ;}
-fman() {
-    man -k . | fzf --prompt='Man> ' | awk '{print $1}' | xargs -r man
-}
-# fd - cd to selected directory
-fd() {
-  local dir
-  dir=$(find ${1:-.} -path '*/\.*' -prune \
-                  -o -type d -print 2> /dev/null | fzf +m) &&
-  cd "$dir" }
-update_package_list(){
-    apt-mark showmanual > ~/Documents/install-scripts/manual-packages.txt
-}
-# Search man pages
-fman() {
-    apropos --long . | fzf --prompt='Man> ' | awk '{print $1}' | xargs -r man
-}
-#dman() {
-#    man "$(apropos --long "$1" | dmenu -i -l 10 | awk '{print $2, $1}' | tr -d '()')"
-#}
-urls() {
-    echo "$1" >> $HOME/.config/newsboat/urls
-}
-
-
-def() {
-dict -d gcide "$1" | less
-}
-# testman() {
-#     man -k "$1" | fzf | awk '{print $1}' | xargs -r man -w | xargs -r ./.mancolor
-# }
