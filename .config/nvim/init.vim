@@ -26,6 +26,7 @@ Plug 'sirver/ultisnips'
     let g:UltiSnipsExpandTrigger = '<tab>'
     let g:UltiSnipsJumpForwardTrigger = '<tab>'
     let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+Plug 'chrisbra/NrrwRgn'
 " Plug 'reedes/vim-litecorrect'
 " Languages 
 Plug 'ap/vim-css-color'
@@ -87,6 +88,7 @@ nnoremap <C-l> <C-w>l
 map <C-n> :bn<cr>
 map <C-p> :bp<cr>
 tnoremap <Esc> <C-\><C-n>
+nnoremap <C-_> <C-w>_
 " Quickly fix prievious spelling mistake with C-l
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
