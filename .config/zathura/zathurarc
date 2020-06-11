@@ -1,31 +1,30 @@
-set statusbar-h-padding 0
-set statusbar-v-padding 0
 set page-padding 1
 set zoom-step 20
 set selection-clipboard clipboard
 set statusbar-home-tilde true
-set statusbar-basename true
 set window-title-basename true
-# set guioptions ''
-set font 'mononoki'
+set guioptions ''
+
+# Base16 Nord
+# Author: arcticicestudio
 
 set default-bg                  "#2E3440"
 set default-fg                  "#3B4252"
 
-# set statusbar-fg                "#D8DEE9"
-# set statusbar-bg                "#434C5E"
+set statusbar-fg                "#D8DEE9"
+set statusbar-bg                "#434C5E"
 
-# set inputbar-bg                 "#2E3440"
-# set inputbar-fg                 "#8FBCBB"
-# 
-# set notification-bg             "#2E3440"
-# set notification-fg             "#8FBCBB"
-# 
-# set notification-error-bg       "#2E3440"
-# set notification-error-fg       "#88C0D0"
-# 
-# set notification-warning-bg     "#2E3440"
-# set notification-warning-fg     "#88C0D0"
+set inputbar-bg                 "#2E3440"
+set inputbar-fg                 "#8FBCBB"
+
+set notification-bg             "#2E3440"
+set notification-fg             "#8FBCBB"
+
+set notification-error-bg       "#2E3440"
+set notification-error-fg       "#88C0D0"
+
+set notification-warning-bg     "#2E3440"
+set notification-warning-fg     "#88C0D0"
 
 set highlight-color             "#5E81AC"
 set highlight-active-color      "#EBCB8B"

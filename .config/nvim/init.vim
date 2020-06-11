@@ -8,20 +8,19 @@ Plug 'junegunn/limelight.vim'
 " FILES 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'preservim/nerdtree'
+" Plug 'preservim/nerdtree'
 Plug 'tpope/vim-eunuch'
 " EDITING 
 Plug 'jiangmiao/auto-pairs' 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-ragtag'
 Plug 'reedes/vim-pencil'
-Plug 'simnalamburt/vim-mundo'
-Plug 'junegunn/vim-peekaboo'
+" Plug 'simnalamburt/vim-mundo'
 Plug 'sirver/ultisnips'
     let g:UltiSnipsExpandTrigger = '<tab>'
     let g:UltiSnipsJumpForwardTrigger = '<tab>'
@@ -29,16 +28,16 @@ Plug 'sirver/ultisnips'
 Plug 'chrisbra/NrrwRgn'
 " Plug 'reedes/vim-litecorrect'
 " Languages 
-Plug 'ap/vim-css-color'
 Plug 'lervag/vimtex'
     let g:tex_flavor = "latex"
     let g:vimtex_view_method='zathura'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
-"Plug 'vimwiki/vimwiki'
+" Plug 'vimwiki/vimwiki'
 Plug 'vim-pandoc/vim-pandoc-after'
 " Plug 'vim-pandoc/vim-rmarkdown'
 Plug 'reedes/vim-lexical'
+" Plug 'vim-syntastic/syntastic'
 " COLORS 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -90,7 +89,7 @@ map <C-p> :bp<cr>
 tnoremap <Esc> <C-\><C-n>
 nnoremap <C-_> <C-w>_
 " Quickly fix prievious spelling mistake with C-l
-inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+" inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 set backup	
 set undofile	" keep an undo file (undo changes after closing)
@@ -170,7 +169,7 @@ autocmd FileType pandoc map <buffer><silent> <leader>pd :<c-u>Pandoc! docx -s --
 map <leader>w :w<cr>
 map <leader>f :Goyo<cr>
 map <leader>l :Limelight<cr>
-map <leader>d :NERDTreeToggle<cr>
+map <leader>d :FZF<cr>
 
 
 " ============================================
@@ -193,6 +192,8 @@ let g:airline_theme='pencil'
 " vim Pencil colors
 let g:pencil_terminal_italics = 1
 
+" Put before vim-pandoc options
+let g:vimwiki_list = [{'path': '~/vimwiki/'}]
 " COLORS
 colorscheme pencil
 " Some tab completions Omnicmpletions
@@ -204,6 +205,7 @@ let g:pandoc#spell#enabled = 0
 " vim-pandoc-after integration
 let g:pandoc#folding#fold_yaml = 1
 let g:pandoc#syntax#conceal#use = 0
+let g:pandoc#after#modules#enabled = ["nrrwrgn", "ultisnips"]
 " FZF options
 " Vim-Pencil
 let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
@@ -211,8 +213,7 @@ let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
 let g:sneak#s_next = 1
 " Labels for quick navigation
 let g:sneak#label = 1
-"let g:vimwiki_list = [{'path': '~/vimwiki/',
-                      " \ 'syntax': 'markdown'}]
+let g:nrrw_rgn_vert = 1
 augroup pencil
   autocmd!
   autocmd FileType markdown,mkd call pencil#init()

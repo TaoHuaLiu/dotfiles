@@ -33,7 +33,13 @@ urls() {
 
 
 def() {
-dict -d gcide "$1" | less
+    dict -d gcide "$1" | less
+}
+deffs() {
+    dict -d fd-fra-spa "$1"
+}
+defse() {
+    dict -d fd-spa-eng "$1"
 }
 # testman() {
 #     man -k "$1" | fzf | awk '{print $1}' | xargs -r man -w | xargs -r ./.mancolor
@@ -43,4 +49,7 @@ cpl() {
 }
 rpl() {
     rclone copy pcloudbak:"$1" .
+}
+nv() {
+    du -a ~/vimwiki/* | awk '{print$2}' | fzf | xargs -r $EDITOR ;
 }

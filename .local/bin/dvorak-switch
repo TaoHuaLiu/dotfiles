@@ -1,3 +1,5 @@
+#!/bin/sh
+# See https://unix.stackexchange.com/questions/2884/toggle-between-dvorak-and-qwerty
 if [ -n "$DISPLAY" ]; then
   if xmodmap -pke | awk '$3=="=" && $4=="q" {q=$2}
                          $3=="=" && $4=="w" {w=$2}

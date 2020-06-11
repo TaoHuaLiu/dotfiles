@@ -13,6 +13,7 @@ alias lt='ls -ltFh --color=auto'   #long list,sorted by date,show type,human rea
 alias mkd='mkdir -p'
 alias zshrc='${=EDITOR} ~/.zshrc' # Quick access to the ~/.zshrc file
 alias vimrc='${=EDITOR} ~/.config/nvim/init.vim'
+alias functionrc='${=EDITOR} ~/.zsh/functions'
 alias aliasrc='${=EDITOR} ~/.zsh/aliasrc'
 alias grep='grep --color'
 alias rm='rm -i'
@@ -30,8 +31,10 @@ alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias info='info --vi-keys'
 alias weather='curl wttr.in/Shanghai'
 alias tp='trash-put'
-alias rbd='reboot now'
+alias rbd='reboot'
 alias std='shutdown now'
+alias xcp='xclip -sel clip'
+alias lib='libreoffice'
 
 
 # APTITUDE SHORTCUTS 
