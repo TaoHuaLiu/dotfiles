@@ -34,6 +34,7 @@ alias tp='trash-put'
 alias rbd='reboot'
 alias std='shutdown now'
 alias xcp='xclip -sel clip'
+alias lib='libreoffice'
 
 
 # APTITUDE SHORTCUTS 

@@ -5,7 +5,6 @@ https://www.distrotube.com/videos/index.xml "~DistroTube"
 https://www.enriquedans.com/feed
 https://sachachua.com/feed "Emacs"
 https://lukesmith.xyz/rss.xml "~Luke's blog"
-https://lukesmith.xyz/youtube.xml "~Luke's vids"
 https://programminghistorian.org/feed.xml "Research"
 https://blog.ncase.me/rss/ "Fun"
 http://cognitivemedium.com/feed.xml
@@ -46,3 +45,4 @@ https://kieranhealy.org/index.xml
 https://tkbr.publishing.sfu.ca/feed
 https://linuxfr.org/journaux.atom
 https://linuxfr.org/news.atom
+http://www.mycpu.org/feed/

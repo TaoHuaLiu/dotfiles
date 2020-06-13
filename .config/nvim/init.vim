@@ -1,7 +1,6 @@
 call plug#begin(stdpath('data') . '/plugged')
 
 set nocompatible
-
 " WRINTING 
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
@@ -169,8 +168,14 @@ autocmd FileType pandoc map <buffer><silent> <leader>pd :<c-u>Pandoc! docx -s --
 map <leader>w :w<cr>
 map <leader>f :Goyo<cr>
 map <leader>l :Limelight<cr>
-map <leader>d :FZF<cr>
+map <leader>d :Files<cr>
 
+"=======================
+"EXTERNAL SCRIPTING LANGUAGES
+"===================================
+"
+
+let g:python3_host_prog = "/usr/bin/python3"
 
 " ============================================
 " ============================================
@@ -180,6 +185,8 @@ map <leader>d :FZF<cr>
 let g:tex_fold_enabled=1
 " VIM AIRLINE
 " Enable wordcount
+let g:airline_left_sep='|'
+let g:airline_right_sep='|'
 let g:airline#extensions#wordcount#enabled = 1
 " Add notes to filetypes
 let g:airline_powerline_fonts = 1
@@ -193,7 +200,7 @@ let g:airline_theme='pencil'
 let g:pencil_terminal_italics = 1
 
 " Put before vim-pandoc options
-let g:vimwiki_list = [{'path': '~/vimwiki/'}]
+"let g:vimwiki_list = [{'path': '~/vimwiki/'}]
 " COLORS
 colorscheme pencil
 " Some tab completions Omnicmpletions
