@@ -1,3 +1,4 @@
+#/bin/env zsh
 (( $+commands[apt] )) && APT=aptitude || APT=apt-get 
 
 alias backup='rclone sync --max-age 2d /home/hugo/Documents/2lycee remotebak:Docs -P'
@@ -36,8 +37,14 @@ alias std='shutdown now'
 alias xcp='xclip -sel clip'
 alias lib='libreoffice'
 alias s='sxiv'
+# CORRECT hidpi scaling for QT applications
+qutes() {
+    QT_SCALE_FACTOR=1 qutebrowser
+    }
+alias anki='QT_SCALE_FACTOR=1 anki'
 
-
+alias calibre='QT_SCALE_FACTOR=1 calibre'
+alias ebook-viewer='QT_SCALE_FACTOR=1 ebook-viewer'
 # APTITUDE SHORTCUTS 
 
 alias acs='$APT search'

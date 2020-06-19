@@ -1,6 +1,9 @@
 #!/bin/zsh
 # Default environment variable
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+# export GDK_SCALE=2
 export EDITOR="nvim"
+export TERMINAL="alacritty"
 export VISUAL="$EDITOR"
 export TERM="xterm-256color"
 export BROWSER="firefox"

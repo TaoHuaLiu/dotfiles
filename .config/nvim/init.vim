@@ -7,14 +7,14 @@ Plug 'junegunn/limelight.vim'
 " FILES 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-" Plug 'preservim/nerdtree'
 Plug 'tpope/vim-eunuch'
 " EDITING 
 Plug 'jiangmiao/auto-pairs' 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
-" Plug 'tpope/vim-fugitive'
+Plug 'godlygeek/tabular'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-ragtag'
@@ -25,7 +25,7 @@ Plug 'sirver/ultisnips'
     let g:UltiSnipsJumpForwardTrigger = '<tab>'
     let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 Plug 'chrisbra/NrrwRgn'
-" Plug 'reedes/vim-litecorrect'
+Plug 'reedes/vim-litecorrect'
 " Languages 
 Plug 'lervag/vimtex'
     let g:tex_flavor = "latex"
@@ -40,7 +40,7 @@ Plug 'reedes/vim-lexical'
 " COLORS 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" Plug 'iCyMind/NeoSolarized'
+Plug 'iCyMind/NeoSolarized'
 Plug 'justinmk/vim-sneak'
 Plug 'reedes/vim-colors-pencil'
 
@@ -57,8 +57,8 @@ syntax on
 " Leader key = space
 nnoremap <SPACE> <Nop>
 let mapleader = ' '
-nnoremap ; :
-xnoremap ; :
+" nnoremap ; :
+" xnoremap ; :
 " Don't use Ex mode, use Q for formatting.
 " Revert with :unmap Q.
 map Q gq
@@ -170,7 +170,11 @@ map <leader>f :Goyo<cr>
 map <leader>l :Limelight<cr>
 map <leader>d :Files<cr>
 
-"=======================
+" Night mode
+"
+"
+" Day mode
+""=======================
 "EXTERNAL SCRIPTING LANGUAGES
 "===================================
 "
@@ -195,7 +199,7 @@ let g:airline#extensions#tabline#enabled = 0
 " Straight tabs 
 let g:airline#extensions#vimtex#enabled = 1
 " airline theme
-let g:airline_theme='pencil'
+let g:airline_theme='minimalist'
 " vim Pencil colors
 let g:pencil_terminal_italics = 1
 

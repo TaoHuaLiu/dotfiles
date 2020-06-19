@@ -1,7 +1,7 @@
 Xft.dpi: 192
 
 ! These might also be useful depending on your monitor and personal preference:
-Xft.autohint: true
+Xft.autohint: 0
 Xft.lcdfilter: lcdfilter
 Xft.hintstyle: hintfull
 Xft.hinting: true
@@ -9,7 +9,7 @@ Xft.antialias: true
 Xft.rgba: rgb
 
 XTerm*renderFont: true
-XTerm*faceName: xft:Fira Code
+XTerm*faceName: xft:mononoki
 XTerm*faceSize: 11
 XTerm*utf8: 2
 XTerm*locale: true

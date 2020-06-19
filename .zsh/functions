@@ -4,15 +4,18 @@
 sl() { du -a ~/Documents/2lycee/* | awk '{print$2}' | grep -e ".md" -e ".txt" -e ".tex" -e ".html" | fzf -m | xargs -r $EDITOR ;}
 sp() { find ~/Documents/2lycee/* ~/Downloads/* -name "*.pdf" -print | fzf -m | xargs -r zathura ;}
 sep() { find -name "*.pdf" -print | fzf -m | xargs -r zathura ;}
-seb() { find ~/Documents/* ~/manpages/bman/* -name "*.epub" -print | fzf -m | xargs -r ebook-viewer ;}
+seb() {  ebook-viewer $(find ~/Documents/* ~/manpages/bman/* -name "*.epub" -print | fzf -m) ;}
 # Copy to desired directory
-cl() {  mv -vi "$1"  -t -t $(find ~/Documents/2lycee/ -type d | fzf --prompt='Dest> ')  ;}
+cl() {  mv -vi "$1"  -t $(find ~/Documents/2lycee/ -type d | fzf --prompt='Dest> ')  ;}
 update_package_list(){
     apt-mark showmanual > ~/Documents/install-scripts/manual-packages.txt
 }
 # Search man pages
 fman() {
     man $(apropos --long . | fzf --prompt='Man> ' | awk '{print $1}')
+}
+fca() {
+    caja $(find ~ -type d | fzf -m --prompt='Dirs>')
 }
 urls() {
     echo "$1" >> $HOME/.config/newsboat/urls
@@ -28,10 +31,10 @@ defse() {
     dict -d fd-spa-eng "$1"
 }
 cpl() {
-    rclone copy "$1" pcloudbak: 
+    rclone copy "$1" remotebak: -P
 }
 rpl() {
-    rclone copy pcloudbak:"$1" .
+    rclone copy remotebak:"$1" . -P
 }
 nv() {
     du -a ~/vimwiki/* | awk '{print$2}' | fzf | xargs -r $EDITOR ;
