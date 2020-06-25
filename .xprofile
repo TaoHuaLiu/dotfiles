@@ -1,3 +1,4 @@
 #!/bin/sh
 redshift &
-remaps &        # run the remaps script, switching caps/esc and more; check it for more info
+[ -x "$HOME/.local/bin/remaps" ] && remaps &        # run the remaps script, switching caps/esc and more; check it for more info
+[ -x "$HOME/.local/bin/nokeybacklight" ] && nokeybacklight &

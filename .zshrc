@@ -6,6 +6,7 @@ export EDITOR="nvim"
 export TERMINAL="alacritty"
 export VISUAL="$EDITOR"
 export TERM="xterm-256color"
+export PAGER="less"
 export BROWSER="firefox"
 export LANG="en_US.UTF-8"
 # LESS COLORS
@@ -21,6 +22,8 @@ export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ;} history -a"
 export TODO_DIR="$HOME/.todo"	
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#87d7ff"
 # This is the list for lf icons:
+export NNN_COLORS="2136"                           # use a different color for each context
+export NNN_TRASH=1                                 # trash (needs trash-cli) instead of delete
 export LF_ICONS="di=📁:\
 fi=📃:\
 tw=🤝:\
