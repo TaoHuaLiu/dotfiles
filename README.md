@@ -6,9 +6,10 @@
 # Programs 
 
 - Neovim
-    - Oriented around pandoc
-    - Plugins with vim-plug
+    - Oriented around Pandoc
+    - Plugins with `vim-plug`
 - Newsboat
+    - `cmus` for Podboat
 - Zsh
     - vi-mode
     - autojump
@@ -18,16 +19,24 @@
     - Icons
 - AwesomeWM
     - dmenu laucher
+    - Media control keys
 - Zathura
     - Arc Theme
-    - Without GUI
+    - No GUI
 - Alacritty
     - mononoki font
     - No window borders
-- Xinit
+- `xprofile`
     - Redshift
-    - remaps for a compose key (left meta) and a caps lock=control
+    - `remaps` for a compose key (left meta) and a caps lock=control
     - Hi-DPI
+    - set keyboard backlight to 0%
+    - [`acpilight`](https://gitlab.com/wavexx/acpilight) for proper `xbacklight` display brightness control 
+- `zsh`
+    - `mancolor` script to provide random colors for man pages
+- `fzf`
+    - reverse layout
+    - 40% height 
 
 # Scripts
 
