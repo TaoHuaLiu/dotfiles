@@ -366,6 +366,10 @@ globalkeys = gears.table.join(
               {description = "+10%", group = "hotkeys"}),
     awful.key({ }, "XF86MonBrightnessDown", function () os.execute("xbacklight -dec 10") end,
               {description = "-10%", group = "hotkeys"}),
+    awful.key({ }, "XF86KbdBrightnessUp", function () os.execute("xbacklight -ctrl smc::kbd_backlight -inc 10") end,
+              {description = "Keyboard +10%", group = "hotkeys"}),
+    awful.key({ }, "XF86KbdBrightnessDown", function () os.execute("xbacklight -ctrl smc::kbd_backlight -dec 10") end,
+              {description = "Keyboard -10%", group = "hotkeys"}),
     awful.key({ modkey }, "x",
 
               function ()
@@ -391,7 +395,7 @@ clientkeys = gears.table.join(
             c:raise()
         end,
         {description = "toggle fullscreen", group = "client"}),
-    awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end,
+    awful.key({ modkey,           }, "q",      function (c) c:kill()                         end,
               {description = "close", group = "client"}),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),

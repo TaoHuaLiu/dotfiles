@@ -34,6 +34,12 @@
     - [`acpilight`](https://gitlab.com/wavexx/acpilight) for proper `xbacklight` display brightness control 
 - `zsh`
     - `mancolor` script to provide random colors for man pages
+    - vi-mode 
+    - C-l for `clear`
+    - `C-e` for editing current line in editor
+    - `autojump`
+    - `zsh-autosuggestions`
+    - `zsh-syntax-highlighting`
 - `fzf`
     - reverse layout
     - 40% height 
