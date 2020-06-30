@@ -2,6 +2,27 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+export NNN_COLORS="2136"                           # use a different color for each context
+export NNN_TRASH=1                                 # trash (needs trash-cli) instead of delete
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+# export GDK_SCALE=2
+export EDITOR="nvim"
+export TERMINAL="alacritty"
+export VISUAL="$EDITOR"
+export TERM="xterm-256color"
+export PAGER="less"
+export BROWSER="firefox"
+export LANG="en_US.UTF-8"
+# LESS COLORS
+export LESS_TERMCAP_mb=$'\e[1;32m'
+export LESS_TERMCAP_md=$'\e[1;32m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[01;33m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[1;4;31m'
+export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse'
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -45,23 +66,8 @@ esac
 # should be on the output of commands, not on the prompt
 #force_color_prompt=yes
 
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
-fi
 
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
-unset color_prompt force_color_prompt
+PS1=' \[\033[01;34m\]\W\[\033[00m\]\[\033[1;30m\]> \[\033[1;32m\]\$ '
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -87,23 +93,9 @@ fi
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -116,7 +108,9 @@ if ! shopt -oq posix; then
   fi
 fi
 [ -r /home/hugo/.byobu/prompt ] && . /home/hugo/.byobu/prompt   #byobu-prompt#
-
+[ -f /home/hugo/.zsh/aliasrc ] && . /home/hugo/.zsh/aliasrc
+[ -f "$HOME/.zsh/functions" ] && source "$HOME/.zsh/functions"
+[ -x "$HOME/.mancolor" ] && source $HOME/.mancolor
 # Color schemes for man pages
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'
@@ -128,4 +122,4 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 
 # set -o vi
 eval "$(pandoc --bash-completion)"
-source /usr/share/autojump/autojump.sh
+[ -f "/usr/share/autojump/autojump.sh" ] && source /usr/share/autojump/autojump.sh

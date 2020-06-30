@@ -18,7 +18,6 @@ export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 # PROMTS
-export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ;} history -a"
 export TODO_DIR="$HOME/.todo"	
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#87d7ff"
 # This is the list for lf icons:

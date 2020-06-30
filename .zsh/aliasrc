@@ -1,5 +1,5 @@
 #/bin/env zsh
-(( $+commands[apt] )) && APT=aptitude || APT=apt-get 
+APT=aptitude || APT=apt-get 
 
 alias backup='rclone sync --max-age 2d /home/hugo/Documents/2lycee remotebak:Docs -P'
 
@@ -12,10 +12,11 @@ alias la='ls -lAFh --color=auto'   #long list,show almost all,show type,human re
 alias lr='ls -tRFh --color=auto'   #sorted by date,recursive,show type,human readable
 alias lt='ls -ltFh --color=auto'   #long list,sorted by date,show type,human readable
 alias mkd='mkdir -p'
-alias zshrc='${=EDITOR} ~/.zshrc' # Quick access to the ~/.zshrc file
-alias vimrc='${=EDITOR} ~/.config/nvim/init.vim'
-alias functionrc='${=EDITOR} ~/.zsh/functions'
-alias aliasrc='${=EDITOR} ~/.zsh/aliasrc'
+alias zshrc='$EDITOR ~/.zshrc' # Quick access to the ~/.zshrc file
+alias vimrc='$EDITOR ~/.config/nvim/init.vim'
+alias bashrc='$EDITOR ~/.bashrc'
+alias functionrc='$EDITOR ~/.zsh/functions'
+alias aliasrc='$EDITOR ~/.zsh/aliasrc'
 alias grep='grep --color'
 alias rm='rm -i'
 alias cp='cp -i'
