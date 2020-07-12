@@ -91,11 +91,11 @@ nnoremap <C-_> <C-w>_
 " Quickly fix prievious spelling mistake with C-l
 " inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
-set backup	
+set nobackup	
 set undofile	" keep an undo file (undo changes after closing)
 
 " Switch on highlighting the last used search pattern.
-set hlsearch
+set nohlsearch
 
 " Put these in an autocmd group, so that we can delete them easily.
 augroup vimrcEx

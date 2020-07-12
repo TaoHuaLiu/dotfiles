@@ -23,6 +23,8 @@ export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse'
+[ -f "$HOME/appimages" ] && export PATH=$PATH:$HOME/appimages
+[ -f "$HOME/go" ] && export PATH=$PATH:$HOME/go
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
