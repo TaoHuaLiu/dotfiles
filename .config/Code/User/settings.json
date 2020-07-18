@@ -1,0 +1,60 @@
+{
+    "python.pythonPath": "/bin/python3",
+    "workbench.colorTheme": "Dracula",
+    "editor.fontFamily": "'Fira Code', 'monospace', monospace, 'Droid Sans Fallback'",
+    "window.menuBarVisibility": "toggle",
+    "workbench.activityBar.visible": false,
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindings": [
+      {
+        "before": ["j", "j"],
+        "after": ["<Esc>"]
+      }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+      {
+        "before": ["<leader>", "d"],
+        "after": ["d", "d"]
+      },
+      {
+        "before": ["<C-n>"],
+        "commands": [":nohl"]
+      }
+    ],
+    "vim.leader": "<space>",
+    "window.titleBarStyle": "custom",
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "vim.cursorStylePerMode.normal": "underline",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "terminal.integrated.shell.linux": "/bin/bash",
+    "workbench.enableExperiments": false,
+    "files.autoSave": "onFocusChange",
+    "python.dataScience.sendSelectionToInteractiveWindow": true,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "explorer.incrementalNaming": "smart",
+    "update.showReleaseNotes": false,
+    "emmet.showSuggestionsAsSnippets": true,
+    "emmet.triggerExpansionOnTab": true,
+    "markdown.preview.doubleClickToSwitchToEditor": false,
+    "markdown.preview.fontFamily": "\"IBM Plex Sans\", \"Noto Sans\"",
+    "powershell.codeFormatting.autoCorrectAliases": true,
+    "powershell.codeFormatting.ignoreOneLineBlock": false,
+    "powershell.codeFormatting.pipelineIndentationStyle": "IncreaseIndentationAfterEveryPipeline",
+    "powershell.codeFormatting.trimWhitespaceAroundPipe": true,
+    "powershell.codeFormatting.useCorrectCasing": true,
+    "powershell.codeFormatting.whitespaceBetweenParameters": true,
+    "powershell.startAsLoginShell.osx": false,
+    "python.analysis.logLevel": "Warning",
+    "python.autoComplete.addBrackets": true,
+    "python.languageServer": "Microsoft",
+    "xml.codeLens.enabled": true,
+    "powershell.integratedConsole.showOnStartup": false,
+    "powershell.integratedConsole.suppressStartupBanner": true
+}
