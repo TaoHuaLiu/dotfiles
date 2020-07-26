@@ -1,67 +1,85 @@
 {
-    "python.pythonPath": "/bin/python3",
-    "workbench.colorTheme": "Dracula",
-    "editor.fontFamily": "'Fira Code Retina', 'Source Code Pro', monospace, 'Droid Sans Fallback'",
-    "editor.fontLigatures": true,
-    "window.menuBarVisibility": "toggle",
-    "workbench.activityBar.visible": false,
-    "editor.minimap.renderCharacters": false,
-    "vim.easymotion": false,
-    "vim.incsearch": true,
-    "vim.useSystemClipboard": true,
-    "vim.useCtrlKeys": true,
-    "vim.hlsearch": false,
-    "vim.insertModeKeyBindings": [
-      {
-        "before": ["j", "j"],
-        "after": ["<Esc>"]
-      }
-    ],
-    "vim.normalModeKeyBindingsNonRecursive": [
-      {
-        "before": ["<leader>", "d"],
-        "after": ["d", "d"]
-      },
-      {
-        "before": ["<C-n>"],
-        "commands": [":nohl"]
-      }
-    ],
-    "vim.leader": "<space>",
-    "telemetry.enableTelemetry": false,
-    "telemetry.enableCrashReporter": false,
-    "vim.cursorStylePerMode.normal": "underline",
-    "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "terminal.integrated.shell.linux": "/bin/bash",
-    "workbench.enableExperiments": false,
-    "files.autoSave": "onFocusChange",
-    "python.dataScience.sendSelectionToInteractiveWindow": true,
-    "explorer.confirmDragAndDrop": false,
-    "explorer.confirmDelete": false,
-    "explorer.incrementalNaming": "smart",
-    "update.showReleaseNotes": false,
-    "emmet.showSuggestionsAsSnippets": true,
-    "emmet.triggerExpansionOnTab": true,
-    "markdown.preview.doubleClickToSwitchToEditor": false,
-    "markdown.preview.fontFamily": "\"IBM Plex Sans\", \"Noto Sans\"",
-    "powershell.codeFormatting.autoCorrectAliases": true,
-    "powershell.codeFormatting.ignoreOneLineBlock": false,
-    "powershell.codeFormatting.pipelineIndentationStyle": "IncreaseIndentationAfterEveryPipeline",
-    "powershell.codeFormatting.trimWhitespaceAroundPipe": true,
-    "powershell.codeFormatting.useCorrectCasing": true,
-    "powershell.codeFormatting.whitespaceBetweenParameters": true,
-    "powershell.startAsLoginShell.osx": false,
-    "python.analysis.logLevel": "Warning",
-    "python.autoComplete.addBrackets": true,
-    "python.languageServer": "Microsoft",
-    "xml.codeLens.enabled": true,
-    "powershell.integratedConsole.showOnStartup": false,
-    "powershell.integratedConsole.suppressStartupBanner": true,
-    "[markdown]": {
-      "editor.fontFamily": "Noto Sans",
-      "editor.fontSize": 16,
-      "editor.wrappingStrategy": "advanced"
+  "python.pythonPath": "/bin/python3",
+  "workbench.colorTheme": "Dracula",
+  "editor.fontFamily": "'Fira Code Retina', 'Source Code Pro', monospace, 'Droid Sans Fallback'",
+  "editor.fontLigatures": true,
+  "window.menuBarVisibility": "toggle",
+  "workbench.activityBar.visible": false,
+  "editor.minimap.renderCharacters": false,
+  "vim.easymotion": false,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": false,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": [
+        "j",
+        "j"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "<leader>",
+        "d"
+      ],
+      "after": [
+        "d",
+        "d"
+      ]
+    },
+    {
+      "before": [
+        "<C-n>"
+      ],
+      "commands": [
+        ":nohl"
+      ]
+    }
+  ],
+  "vim.leader": "<space>",
+  "telemetry.enableTelemetry": false,
+  "telemetry.enableCrashReporter": false,
+  "vim.cursorStylePerMode.normal": "underline",
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "terminal.integrated.shell.linux": "/bin/bash",
+  "workbench.enableExperiments": false,
+  "files.autoSave": "off",
+  "python.dataScience.sendSelectionToInteractiveWindow": true,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "explorer.incrementalNaming": "smart",
+  "update.showReleaseNotes": false,
+  "emmet.showSuggestionsAsSnippets": true,
+  "emmet.triggerExpansionOnTab": true,
+  "markdown.preview.doubleClickToSwitchToEditor": false,
+  "markdown.preview.fontFamily": "\"IBM Plex Sans\", \"Noto Sans\"",
+  "powershell.codeFormatting.autoCorrectAliases": true,
+  "powershell.codeFormatting.ignoreOneLineBlock": false,
+  "powershell.codeFormatting.pipelineIndentationStyle": "IncreaseIndentationAfterEveryPipeline",
+  "powershell.codeFormatting.trimWhitespaceAroundPipe": true,
+  "powershell.codeFormatting.useCorrectCasing": true,
+  "powershell.codeFormatting.whitespaceBetweenParameters": true,
+  "powershell.startAsLoginShell.osx": false,
+  "python.analysis.logLevel": "Warning",
+  "python.autoComplete.addBrackets": true,
+  "python.languageServer": "Microsoft",
+  "xml.codeLens.enabled": true,
+  "powershell.integratedConsole.showOnStartup": false,
+  "powershell.integratedConsole.suppressStartupBanner": true,
+  "[bash]": {
+    "files.eol": "\n"
+  },
+  "[markdown]": {
+    "editor.fontFamily": "Noto Sans",
+    "editor.fontSize": 16,
+    "editor.wrappingStrategy": "advanced"
   },
   "editor.fontSize": 15,
   "shellcheck.run": "onType",
@@ -92,5 +110,6 @@
   "breadcrumbs.filePath": "last",
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
-  "window.closeWhenEmpty": true // also: "onSave"
+  "window.closeWhenEmpty": true,
+  "editor.minimap.enabled": false // also: "onSave"
 }
