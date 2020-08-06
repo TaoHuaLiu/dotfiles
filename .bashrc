@@ -24,7 +24,7 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse'
 [ -f "$HOME/appimages" ] && export PATH=$PATH:$HOME/appimages
-[ -f "$HOME/go" ] && export PATH=$PATH:$HOME/go
+# [ -f "$HOME/go" ] && export PATH=$PATH:$HOME/go
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -71,14 +71,6 @@ esac
 
 PS1=' \[\033[01;34m\]\W\[\033[00m\]\[\033[1;30m\]> \[\033[1;32m\]\$ '
 
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
